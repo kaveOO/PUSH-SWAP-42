@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 10:44:08 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/06 13:46:23 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/06 13:53:33 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,6 +127,15 @@ void	insert_integers(t_parsed **head, int nb)
 }
 
 void	check_doubles(t_parsed *parsed)
+{
+	int i = 0;
+
+	while (parsed->numbers[i])
+	{
+		printf("%d", parsed->numbers);
+		i++;
+	}
+}
 
 /* void	check_double(t_parsed *parsed)
 {
