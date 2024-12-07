@@ -1,23 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/06 01:06:19 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/07 01:24:11 by albillie         ###   ########.fr       */
+/*   Created: 2024/12/07 00:05:06 by albillie          #+#    #+#             */
+/*   Updated: 2024/12/07 00:06:20 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
-{
-	t_parsed *parsed;
-
-	if (argc == 1)
-		return(0);
-	parsed = malloc(sizeof(t_parsed));
-	args_checker(parsed, argc, argv);
-}

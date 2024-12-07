@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 10:44:08 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/06 13:53:33 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/07 06:56:59 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,10 @@ void	args_checker(t_parsed *parsed, int argc, char **argv)
 {
 	int	i;
 
-	if (argc < 2)
-		ft_printf("Error\n"), exit(1);
+	if (argc == 0)
+	{
+		exit(1);
+	}
 	i = 0;
 	if (argc == 2)
 	{
@@ -97,9 +99,7 @@ void	get_numbers(t_parsed *parsed, char *str)
 		if (!check_chars(array[i]))
 			ft_printf("Error\n"), free_array(array), exit(1);
 		int number = ft_atoi(array[i]);
-		printf("%d", number);
-		insert_integers(&parsed, number);
-		printf("\n%d\n", parsed->numbers);
+		insert_integers(number);
 		i++;
 	}
 	free_array(array);
@@ -117,16 +117,36 @@ void	free_array(char **array)
 	free(array);
 }
 
-void	insert_integers(t_parsed **head, int nb)
+/* struct *create_elem(int nb)
 {
-	t_parsed *temp;
-	temp = malloc(sizeof(t_parsed));
-	temp->numbers = nb;
-	temp->next = *head;
-	*head = temp;
+
 }
 
-void	check_doubles(t_parsed *parsed)
+void	add_elem(stack)
+{
+	create_elem(num);
+	while()
+	{
+	}
+	stack
+} */
+
+void	insert_integers(int nb)
+{
+	int	array[10];
+	int	i;
+	i = 0;
+
+	while (array[i])
+	{
+		array[i] = nb;
+		i++;
+	}
+	printf("%d\n", array[1]);
+}
+
+
+/* void	check_doubles(t_parsed *parsed)
 {
 	int i = 0;
 
@@ -135,7 +155,7 @@ void	check_doubles(t_parsed *parsed)
 		printf("%d", parsed->numbers);
 		i++;
 	}
-}
+} */
 
 /* void	check_double(t_parsed *parsed)
 {
