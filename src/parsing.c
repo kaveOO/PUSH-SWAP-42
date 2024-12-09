@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 10:44:08 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/07 06:56:59 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/09 04:45:25 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int	count_args(char *str)
 			i++;
 		}
 	}
-	return (args);
+	return (args - 1);
 }
 
 void	get_numbers(t_parsed *parsed, char *str)
@@ -89,7 +89,8 @@ void	get_numbers(t_parsed *parsed, char *str)
 	char	**array;
 	int		i;
 
-	(void) parsed;
+	// printf("%d", count_args(str));
+	parsed->array = malloc(sizeof(int) * (count_args(str)));
 	array = ft_split(str, ' ');
 	if (!array)
 		ft_printf("Error\n"), exit(1);
@@ -99,10 +100,12 @@ void	get_numbers(t_parsed *parsed, char *str)
 		if (!check_chars(array[i]))
 			ft_printf("Error\n"), free_array(array), exit(1);
 		int number = ft_atoi(array[i]);
-		insert_integers(number);
+		parsed->array[i] = number;
 		i++;
 	}
 	free_array(array);
+	sort_array(parsed, str);
+	print_numbers(parsed);
 }
 
 void	free_array(char **array)
@@ -117,33 +120,65 @@ void	free_array(char **array)
 	free(array);
 }
 
-/* struct *create_elem(int nb)
+void	sort_array(t_parsed *parsed, char *str)
 {
-
-}
-
-void	add_elem(stack)
-{
-	create_elem(num);
-	while()
-	{
-	}
-	stack
-} */
-
-void	insert_integers(int nb)
-{
-	int	array[10];
 	int	i;
-	i = 0;
+	int j;
 
-	while (array[i])
+	i = 0;
+	while (i < count_args(str))
 	{
-		array[i] = nb;
+		j = 0;
+		bool swapped = true;
+		while (swapped)
+		{
+			if (parsed->array[j] > pars	ed->array[j + 1])
+			{
+				ft_printf("%d is bigger than %d\n", parsed->array[j], parsed->array[j + 1]);
+				swapped = true;
+				j++;
+			}
+			j++;
+		}
 		i++;
 	}
-	printf("%d\n", array[1]);
 }
+
+void	print_numbers(t_parsed *parsed)
+{
+	int i = 0;
+	while (parsed->array[i])
+	{
+		ft_printf("%d\n", parsed->array[i]);
+		i++;
+	}
+}
+
+// void	add_elem(stack)
+// {
+// 	create_elem(num);
+// 	while()
+// 	{
+// 	}
+// 	stack
+// }
+
+void	ft_swap(int *a, int *b)
+{
+	int	temp;
+
+	temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
+// void	sort_int_tab()
+// {
+
+
+
+// }
+
 
 
 /* void	check_doubles(t_parsed *parsed)
