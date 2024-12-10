@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 10:44:08 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/09 04:45:25 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/10 10:33:56 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int	count_args(char *str)
 			i++;
 		}
 	}
-	return (args - 1);
+	return (args);
 }
 
 void	get_numbers(t_parsed *parsed, char *str)
@@ -89,11 +89,12 @@ void	get_numbers(t_parsed *parsed, char *str)
 	char	**array;
 	int		i;
 
-	// printf("%d", count_args(str));
-	parsed->array = malloc(sizeof(int) * (count_args(str)));
 	array = ft_split(str, ' ');
 	if (!array)
 		ft_printf("Error\n"), exit(1);
+	if (!array[1])
+		return ;
+	parsed->array = malloc(sizeof(int) * (count_args(str)));
 	i = 0;
 	while (array[i])
 	{
@@ -104,7 +105,7 @@ void	get_numbers(t_parsed *parsed, char *str)
 		i++;
 	}
 	free_array(array);
-	sort_array(parsed, str);
+	sort_array(parsed);
 	print_numbers(parsed);
 }
 
@@ -120,23 +121,20 @@ void	free_array(char **array)
 	free(array);
 }
 
-void	sort_array(t_parsed *parsed, char *str)
+void	sort_array(t_parsed *parsed)
 {
 	int	i;
-	int j;
+	int	j;
 
 	i = 0;
-	while (i < count_args(str))
+	while (parsed->array[i])
 	{
-		j = 0;
-		bool swapped = true;
-		while (swapped)
+		j = i + 1;
+		while (parsed->array[j])
 		{
-			if (parsed->array[j] > pars	ed->array[j + 1])
+			if (parsed->array[j] ==  parsed->array[i])
 			{
-				ft_printf("%d is bigger than %d\n", parsed->array[j], parsed->array[j + 1]);
-				swapped = true;
-				j++;
+				ft_printf("Error\n"), exit(1);
 			}
 			j++;
 		}
