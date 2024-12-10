@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 10:44:08 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/10 10:33:56 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/10 11:02:52 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,7 @@ void	free_array(char **array)
 	free(array);
 }
 
-void	sort_array(t_parsed *parsed)
+void	check_doubles(t_parsed *parsed)
 {
 	int	i;
 	int	j;
@@ -193,3 +193,4 @@ void	ft_swap(int *a, int *b)
 /* void	check_double(t_parsed *parsed)
 {
 } */
+//PIPI

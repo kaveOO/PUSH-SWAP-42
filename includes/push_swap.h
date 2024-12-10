@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 10:48:02 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/10 08:43:29 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/10 10:57:39 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,6 @@ void	get_numbers(t_parsed *parsed, char *str);
 void	free_array(char **array);
 void	ft_swap(int *a, int *b);
 void	print_numbers(t_parsed *parsed);
-void	sort_array(t_parsed *parsed);
+void	check_doubles(t_parsed *parsed);
 
 #endif
