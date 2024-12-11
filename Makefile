@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: albillie <albillie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/12/05 10:45:16 by albillie          #+#    #+#              #
-#    Updated: 2024/12/06 01:27:55 by albillie         ###   ########.fr        #
+#    Created: 2024/12/11 00:18:47 by albillie          #+#    #+#              #
+#    Updated: 2024/12/11 01:05:41 by albillie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,12 @@ RM		=	rm -f
 LIB		=	libft
 LIBFT	=	$(LIB)/libft.a
 
-SRC		=	src/main.c		\
-			src/parsing.c	\
+SRC		=	src/parsing/check_args.c	\
+			src/parsing/if_args.c		\
+			src/parsing/if_string.c		\
+			src/parsing/utils.c			\
+			src/main.c					\
+			src/utils.c			\
 
 OBJ 		= $(SRC:.c=.o)
 

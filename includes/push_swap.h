@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 10:48:02 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/10 10:57:39 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/11 08:06:29 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,12 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <libft.h>
+#include <limits.h>
 
 typedef struct s_parsed
 {
 	int	numbers;
-	int	*array;
+	long	*array;
 	struct s_parsed	*next;
 }	t_parsed;
 
@@ -35,9 +36,13 @@ void	args_checker(t_parsed *parsed, int argc, char **argv);
 int		count_args(char *str);
 bool	check_chars(char *str);
 void	get_numbers(t_parsed *parsed, char *str);
-void	free_array(char **array);
 void	ft_swap(int *a, int *b);
 void	print_numbers(t_parsed *parsed);
 void	check_doubles(t_parsed *parsed);
+void	check_when_string(t_parsed *parsed, char *str);
+void	write_error();
+void	split_and_fill(t_parsed *parsed, char *str);
+void	check_limits(t_parsed *parsed);
+void	free_array(char **array);
 
 #endif
