@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 00:08:28 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/11 08:08:41 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/11 10:51:47 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void	split_and_fill(t_parsed *parsed, char *str)
 		parsed->array[i] = ft_atol(array[i]);
 		i++;
 	}
+	parsed->array[i] = '\0';
 }
 
 void	print_numbers(t_parsed *parsed)
@@ -56,7 +57,7 @@ void	print_numbers(t_parsed *parsed)
 	int i = 0;
 	while (parsed->array[i])
 	{
-		ft_printf("%d\n", parsed->array[i]);
+		ft_printf("1 : %d\n", parsed->array[i]);
 		i++;
 	}
 }

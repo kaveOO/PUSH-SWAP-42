@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 10:48:02 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/11 08:06:29 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/11 11:10:00 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,7 @@ void	write_error();
 void	split_and_fill(t_parsed *parsed, char *str);
 void	check_limits(t_parsed *parsed);
 void	free_array(char **array);
+void	check_when_args(t_parsed *parsed, char *str);
+
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 00:11:24 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/11 00:14:41 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/11 11:11:26 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,7 @@ void	args_checker(t_parsed *parsed, int argc, char **argv)
 	{
 		while (i < argc)
 		{
-			if (!check_chars(argv[i]))
-				ft_printf("Error\n"), exit(1);
-			i++;
+			check_when_args(parsed, argv[i]);
 		}
 	}
 }
