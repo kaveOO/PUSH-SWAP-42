@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 00:08:28 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/12 06:30:22 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/12 07:35:08 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	split_and_fill(t_parsed *parsed, char *str)
 	{
 		if (!check_chars(array[i]) || (ft_strlen(array[i]) > ft_strlen(ft_itoa(INT_MIN))))
 			write_error();
-		parsed->array[i] = ft_atol(array[i]);
+		parsed->array = ft_atol(array[i]);
 		i++;
 	}
 	parsed->array[i] = '\0';

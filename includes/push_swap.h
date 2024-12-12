@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 10:48:02 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/11 11:10:00 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/12 07:34:48 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 
 typedef struct s_parsed
 {
-	int	numbers;
 	long	*array;
 	struct s_parsed	*next;
 }	t_parsed;
