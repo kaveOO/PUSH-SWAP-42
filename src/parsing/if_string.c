@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 00:08:28 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/11 10:51:47 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/12 06:30:22 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	check_when_string(t_parsed *parsed, char *str)
 	check_doubles(parsed);
 	print_numbers(parsed);
 }
+
 void	check_limits(t_parsed *parsed)
 {
 	int i = 0;
@@ -44,7 +45,7 @@ void	split_and_fill(t_parsed *parsed, char *str)
 	i = 0;
 	while (array[i])
 	{
-		if (!check_chars(array[i]))
+		if (!check_chars(array[i]) || (ft_strlen(array[i]) > ft_strlen(ft_itoa(INT_MIN))))
 			write_error();
 		parsed->array[i] = ft_atol(array[i]);
 		i++;
