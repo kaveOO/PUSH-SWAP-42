@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 01:06:19 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/10 23:58:52 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/16 16:08:25 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,8 @@
 
 int	main(int argc, char **argv)
 {
-	t_parsed *parsed;
+	t_stacks *stack;
 
-	if (argc == 1)
-		return(0);
-	parsed = malloc(sizeof(t_parsed));
-	args_checker(parsed, argc, argv);
+	stack = malloc(sizeof(t_stacks));
+	args_checker(stack, argc, argv);
 }

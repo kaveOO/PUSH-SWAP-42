@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 10:48:02 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/12 07:34:48 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/16 16:07:46 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,31 +19,21 @@
 #include <libft.h>
 #include <limits.h>
 
-typedef struct s_parsed
-{
-	long	*array;
-	struct s_parsed	*next;
-}	t_parsed;
-
 typedef struct s_stacks
 {
-	int		stack_a;
-	struct	s_stacks * next;
-}	t_stacks;
+	int					data;
+	struct s_stacks		*next;
+}						t_stacks;
 
-void	args_checker(t_parsed *parsed, int argc, char **argv);
+void	args_checker(t_stacks *stack, int argc, char **argv);
 int		count_args(char *str);
 bool	check_chars(char *str);
-void	get_numbers(t_parsed *parsed, char *str);
-void	ft_swap(int *a, int *b);
-void	print_numbers(t_parsed *parsed);
-void	check_doubles(t_parsed *parsed);
-void	check_when_string(t_parsed *parsed, char *str);
 void	write_error();
-void	split_and_fill(t_parsed *parsed, char *str);
-void	check_limits(t_parsed *parsed);
 void	free_array(char **array);
-void	check_when_args(t_parsed *parsed, char *str);
+void	check_when_args(t_stacks *stack, char *str);
+void	print_list(t_stacks *stack);
+t_stacks	*ft_lstnew_scam(long content);
+void	ft_lstadd_back_scam(t_stacks **lst, t_stacks *new);
 
 
 #endif

@@ -6,7 +6,7 @@
 #    By: albillie <albillie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/11 00:18:47 by albillie          #+#    #+#              #
-#    Updated: 2024/12/11 01:05:41 by albillie         ###   ########.fr        #
+#    Updated: 2024/12/16 15:13:37 by albillie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,6 @@ LIBFT	=	$(LIB)/libft.a
 
 SRC		=	src/parsing/check_args.c	\
 			src/parsing/if_args.c		\
-			src/parsing/if_string.c		\
 			src/parsing/utils.c			\
 			src/main.c					\
 			src/utils.c			\
