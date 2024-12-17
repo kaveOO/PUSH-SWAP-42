@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 10:48:02 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/16 16:07:46 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/17 19:24:30 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,15 @@ typedef struct s_stacks
 	struct s_stacks		*next;
 }						t_stacks;
 
-void	args_checker(t_stacks *stack, int argc, char **argv);
-int		count_args(char *str);
-bool	check_chars(char *str);
-void	write_error();
-void	free_array(char **array);
-void	check_when_args(t_stacks *stack, char *str);
-void	print_list(t_stacks *stack);
-t_stacks	*ft_lstnew_scam(long content);
-void	ft_lstadd_back_scam(t_stacks **lst, t_stacks *new);
+void		args_checker(int argc, char **argv);
+int			count_args(char *str);
+bool		check_chars(char *str);
+void		write_error();
+void		free_array(char **array);
+int			*fill_array(int ac, char **av);
+void		args_handler(int ac, char **av);
+int			args_counter(int ac);
+
 
 
 #endif
