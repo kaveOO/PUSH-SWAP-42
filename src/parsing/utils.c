@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 00:12:44 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/11 10:59:10 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/18 06:11:02 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-bool	check_chars(char *str)
+void	check_chars(char *str)
 {
 	int	i;
 
@@ -25,11 +25,10 @@ bool	check_chars(char *str)
 	{
 		if (!ft_isdigit(str[i]))
 		{
-			return (false);
+			exit_parsing();
 		}
 		i++;
 	}
-	return (true);
 }
 
 int	count_args(char *str)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 10:48:02 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/17 19:24:30 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/18 06:44:34 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ typedef struct s_stacks
 
 void		args_checker(int argc, char **argv);
 int			count_args(char *str);
-bool		check_chars(char *str);
-void		write_error();
+void		check_chars(char *str);
 void		free_array(char **array);
 int			*fill_array(int ac, char **av);
 void		args_handler(int ac, char **av);
 int			args_counter(int ac);
-
-
+void		exit_parsing();
+void		check_limits(char *str);
+void		check_len(char *str);
 
 #endif

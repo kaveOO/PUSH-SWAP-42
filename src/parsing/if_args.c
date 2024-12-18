@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   if_args.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 00:09:24 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/17 19:39:09 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/18 06:50:01 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,46 @@
 
 void	args_handler(int ac, char **av)
 {
-	fill_array(ac, av);
+	int	i;
+
+	i = 1;
+	while (i < ac)
+	{
+		check_chars(av[i]);
+		check_limits(av[i]);
+		check_len(av[i]);
+		i++;
+	}
+
+
+	// fill_array(ac, av);
 }
+void	check_len(char *str)
+{
+	size_t	i;
+
+	i = 0;
+	while (str[i] == '+' || str[i] == '-' || str[i] == '0')
+		str++;
+	while (ft_isdigit(str[i]))
+	{
+		i++;
+	}
+	if (i > ft_strlen("9223372036854775807"))
+	{
+		exit_parsing();
+	}
+}
+
+void	check_limits(char *str)
+{
+	if (ft_atol(str) > INT_MAX || ft_atol(str) < INT_MIN)
+	{
+		exit_parsing();
+	}
+}
+
+
 int	args_counter(int ac)
 {
 	int	i;
