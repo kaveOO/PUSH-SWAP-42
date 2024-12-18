@@ -6,7 +6,7 @@
 /*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 10:48:02 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/18 19:54:38 by kaveo            ###   ########.fr       */
+/*   Updated: 2024/12/18 21:30:31 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,8 @@ void		args_handler(int ac, char **av);
 void		exit_parsing(void);
 void		check_limits(char *str);
 void		check_len(char *str);
+t_parsing	*stack_lst_new(int data);
+void		stack_add_back(t_parsing **list, int data);
+
 
 #endif

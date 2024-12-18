@@ -6,7 +6,7 @@
 /*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 00:09:24 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/18 20:15:01 by kaveo            ###   ########.fr       */
+/*   Updated: 2024/12/18 21:41:26 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,22 @@
 // TODO Check for numbers / Atol scam for long / Check doubles / Fill array
 // TODO If i == 1,  make lst new, else just make lst add back with numbers to fill the array
 
+void print_list(t_parsing **list)
+{
+	t_parsing *ptr;
+
+	ptr = (*list);
+	while (ptr->next)
+	{
+		ft_printf("%d\n", ptr->data);
+		ptr = ptr->next;
+	}
+}
+
 void	args_handler(int ac, char **av)
 {
 	t_parsing *parsing;
 
-	parsing = malloc(sizeof(t_parsing));
 	int	i;
 
 	i = 1;
@@ -28,6 +39,11 @@ void	args_handler(int ac, char **av)
 		check_chars(av[i]);
 		check_limits(av[i]);
 		check_len(av[i]);
+		if (i == 1)
+			parsing = stack_lst_new(ft_atoi(av[i]));
+		else
+			stack_add_back(&parsing, ft_atoi(av[i]));
+		ft_printf("%d\n", parsing->data);
 		i++;
 	}
 }

@@ -6,7 +6,7 @@
 #    By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/11 00:18:47 by albillie          #+#    #+#              #
-#    Updated: 2024/12/18 19:40:21 by kaveo            ###   ########.fr        #
+#    Updated: 2024/12/18 21:20:37 by kaveo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ LIBFT	=	$(LIB)/libft.a
 SRC		=	src/parsing/check_args.c	\
 			src/parsing/if_args.c		\
 			src/parsing/utils.c			\
+			src/parsing/list_utils.c			\
 			src/main.c					\
 			src/utils.c			\
 
