@@ -6,7 +6,7 @@
 /*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 20:16:12 by kaveo             #+#    #+#             */
-/*   Updated: 2024/12/19 15:06:07 by kaveo            ###   ########.fr       */
+/*   Updated: 2024/12/19 18:50:09 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,3 +46,33 @@ void	print_stack_list(t_parsing *list)
 	ft_printf("%d\n", list->data);
 }
 
+void	free_stack_list(t_parsing *list)
+{
+	t_parsing *temp;
+
+	while (list != NULL)
+	{
+		temp = list;
+		list = list->next;
+		free(temp);
+	}
+}
+
+void	check_for_doubles(t_parsing *list)
+{
+	t_parsing *current;
+	t_parsing *temp;
+
+	current = list;
+	while (current)
+	{
+		temp = current;
+		while (temp->next)
+		{
+			if (temp->next->data == current->data)
+				exit_parsing();
+			temp = temp->next;
+		}
+		current = current->next;
+	}
+}

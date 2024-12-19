@@ -6,7 +6,7 @@
 /*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 10:48:02 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/19 15:06:12 by kaveo            ###   ########.fr       */
+/*   Updated: 2024/12/19 18:16:46 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ void		check_len(char *str);
 t_parsing	*stack_lst_new(int data);
 void		stack_add_back(t_parsing **list, t_parsing *data);
 void		print_stack_list(t_parsing *list);
+void		free_stack_list(t_parsing *list);
+void		check_for_doubles(t_parsing *list);
 
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 00:12:44 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/18 06:11:02 by kaveo            ###   ########.fr       */
+/*   Updated: 2024/12/19 17:23:19 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,14 @@ void	check_chars(char *str)
 	if (str[i] == '-' || str[i] == '+')
 	{
 		i++;
+		if (!ft_isdigit(str[i]))
+			exit_parsing();
+		i++;
 	}
 	while (str[i])
 	{
 		if (!ft_isdigit(str[i]))
-		{
 			exit_parsing();
-		}
 		i++;
 	}
 }
