@@ -6,26 +6,26 @@
 /*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 20:16:12 by kaveo             #+#    #+#             */
-/*   Updated: 2024/12/19 18:50:09 by kaveo            ###   ########.fr       */
+/*   Updated: 2024/12/19 20:15:01 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_parsing	*stack_lst_new(int data)
+t_stacks	*stack_lst_new(int data)
 {
-	t_parsing	*parsing;
+	t_stacks	*stack;
 
-	parsing = malloc(sizeof(t_parsing));
-	if (!parsing)
-		exit_parsing();
-	parsing->data = data;
-	parsing->next = NULL;
-	return (parsing);
+	stack = malloc(sizeof(t_stacks));
+	if (!stack)
+		exit_error(NULL);
+	stack->stack_a = data;
+	stack->next = NULL;
+	return (stack);
 }
-void	stack_add_back(t_parsing **list, t_parsing *data)
+void	stack_add_back(t_stacks **list, t_stacks *data)
 {
-	t_parsing	*ptr;
+	t_stacks	*ptr;
 
 	ptr = (*list);
 	if (!ptr)
@@ -36,19 +36,19 @@ void	stack_add_back(t_parsing **list, t_parsing *data)
 	}
 	ptr->next = data;
 }
-void	print_stack_list(t_parsing *list)
+void	print_stack_list(t_stacks *list)
 {
 	while (list->next)
 	{
-		ft_printf("%d\n", list->data);
+		ft_printf("%d\n", list->stack_a);
 		list = list->next;
 	}
-	ft_printf("%d\n", list->data);
+	ft_printf("%d\n", list->stack_a);
 }
 
-void	free_stack_list(t_parsing *list)
+void	free_stack_list(t_stacks *list)
 {
-	t_parsing *temp;
+	t_stacks *temp;
 
 	while (list != NULL)
 	{
@@ -58,10 +58,10 @@ void	free_stack_list(t_parsing *list)
 	}
 }
 
-void	check_for_doubles(t_parsing *list)
+void	check_for_doubles(t_stacks *list)
 {
-	t_parsing *current;
-	t_parsing *temp;
+	t_stacks *current;
+	t_stacks *temp;
 
 	current = list;
 	while (current)
@@ -69,8 +69,8 @@ void	check_for_doubles(t_parsing *list)
 		temp = current;
 		while (temp->next)
 		{
-			if (temp->next->data == current->data)
-				exit_parsing();
+			if (temp->next->stack_a == current->stack_a)
+				exit_error(list);
 			temp = temp->next;
 		}
 		current = current->next;

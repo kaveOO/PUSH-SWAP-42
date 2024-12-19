@@ -6,7 +6,7 @@
 /*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 00:12:44 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/19 17:23:19 by kaveo            ###   ########.fr       */
+/*   Updated: 2024/12/19 20:06:47 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ void	check_chars(char *str)
 	{
 		i++;
 		if (!ft_isdigit(str[i]))
-			exit_parsing();
+			exit_error(NULL);
 		i++;
 	}
 	while (str[i])
 	{
 		if (!ft_isdigit(str[i]))
-			exit_parsing();
+			exit_error(NULL);
 		i++;
 	}
 }
