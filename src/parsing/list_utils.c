@@ -6,7 +6,7 @@
 /*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 20:16:12 by kaveo             #+#    #+#             */
-/*   Updated: 2024/12/18 21:29:43 by kaveo            ###   ########.fr       */
+/*   Updated: 2024/12/19 15:06:07 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,26 @@ t_parsing	*stack_lst_new(int data)
 	parsing->next = NULL;
 	return (parsing);
 }
-void	stack_add_back(t_parsing **list, int data)
+void	stack_add_back(t_parsing **list, t_parsing *data)
 {
 	t_parsing	*ptr;
 
 	ptr = (*list);
+	if (!ptr)
+		return;
 	while (ptr->next)
 	{
 		ptr = ptr->next;
 	}
-	ptr->data = data;
+	ptr->next = data;
 }
+void	print_stack_list(t_parsing *list)
+{
+	while (list->next)
+	{
+		ft_printf("%d\n", list->data);
+		list = list->next;
+	}
+	ft_printf("%d\n", list->data);
+}
+

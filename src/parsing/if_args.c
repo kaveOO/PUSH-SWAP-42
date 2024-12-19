@@ -6,31 +6,28 @@
 /*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 00:09:24 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/18 21:41:26 by kaveo            ###   ########.fr       */
+/*   Updated: 2024/12/19 15:09:28 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // TODO Check for numbers / Atol scam for long / Check doubles / Fill array
-// TODO If i == 1,  make lst new, else just make lst add back with numbers to fill the array
 
-void print_list(t_parsing **list)
+void print_list(t_parsing *list)
 {
 	t_parsing *ptr;
 
-	ptr = (*list);
+	ptr = list;
 	while (ptr->next)
 	{
-		ft_printf("%d\n", ptr->data);
+		ft_printf("%d\n", list->data);
 		ptr = ptr->next;
 	}
 }
-
 void	args_handler(int ac, char **av)
 {
 	t_parsing *parsing;
-
 	int	i;
 
 	i = 1;
@@ -42,10 +39,12 @@ void	args_handler(int ac, char **av)
 		if (i == 1)
 			parsing = stack_lst_new(ft_atoi(av[i]));
 		else
-			stack_add_back(&parsing, ft_atoi(av[i]));
-		ft_printf("%d\n", parsing->data);
+			stack_add_back(&parsing, stack_lst_new(ft_atoi(av[i])));
 		i++;
 	}
+	print_stack_list(parsing);
+	ft_printf("\n");
+	print_stack_list(parsing);
 }
 void	check_len(char *str)
 {
