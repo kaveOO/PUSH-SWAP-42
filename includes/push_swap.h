@@ -6,7 +6,7 @@
 /*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 10:48:02 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/19 20:05:11 by kaveo            ###   ########.fr       */
+/*   Updated: 2024/12/20 07:08:54 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,10 @@ typedef struct s_stacks
 	struct s_stacks		*next;
 }						t_stacks;
 
-void		args_checker(int argc, char **argv);
+t_stacks	*args_checker(int argc, char **argv);
 int			count_args(char *str);
 void		check_chars(char *str);
-void		free_array(char **array);
-void		args_handler(int ac, char **av);
+t_stacks	*args_handler(int ac, char **av);
 void		check_limits(char *str);
 void		check_len(char *str);
 t_stacks	*stack_lst_new(int data);

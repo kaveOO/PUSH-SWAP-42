@@ -6,7 +6,7 @@
 /*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 00:09:24 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/19 20:06:28 by kaveo            ###   ########.fr       */
+/*   Updated: 2024/12/20 07:05:51 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 // TODO Check if already sorted with linked lists
 
-void	args_handler(int ac, char **av)
+t_stacks	*args_handler(int ac, char **av)
 {
 	t_stacks *stacks;
 	int	i;
@@ -33,6 +33,7 @@ void	args_handler(int ac, char **av)
 	}
 	// print_stack_list(parsing);
 	check_for_doubles(stacks);
+	return (stacks);
 }
 void	check_len(char *str)
 {

@@ -6,18 +6,19 @@
 /*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 00:11:24 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/18 07:09:11 by kaveo            ###   ########.fr       */
+/*   Updated: 2024/12/20 07:09:49 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	args_checker(int argc, char **argv)
+t_stacks	*args_checker(int argc, char **argv)
 {
 	if (argc <= 2)
 		exit(1);
 	if (argc > 2)
 	{
-		args_handler(argc, argv);
+		return (args_handler(argc, argv));
 	}
+	return NULL;
 }
