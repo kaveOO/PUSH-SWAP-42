@@ -6,11 +6,11 @@
 /*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 07:57:38 by kaveo             #+#    #+#             */
-/*   Updated: 2024/12/20 07:58:32 by kaveo            ###   ########.fr       */
+/*   Updated: 2024/12/20 15:30:37 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#include "push_swap.h"
 
 t_stacks	*stack_lst_new(int data)
 {

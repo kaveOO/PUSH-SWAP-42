@@ -6,7 +6,7 @@
 #    By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/11 00:18:47 by albillie          #+#    #+#              #
-#    Updated: 2024/12/20 09:00:15 by kaveo            ###   ########.fr        #
+#    Updated: 2024/12/20 16:28:32 by kaveo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,12 +21,11 @@ RM		=	rm -f
 LIB		=	libft
 LIBFT	=	$(LIB)/libft.a
 
-SRC		=	src/parsing/check_args.c	\
-			src/parsing/if_args.c		\
+SRC		=	src/parsing/is_valid_args.c	\
 			src/parsing/utils.c			\
-			src/lists_utils.c	\
-			src/main.c					\
-			src/utils.c					\
+			src/core/lists_utils.c		\
+			src/core/main.c				\
+			src/core/utils.c			\
 
 OBJ 		= $(SRC:.c=.o)
 

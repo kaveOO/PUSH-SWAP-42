@@ -6,28 +6,65 @@
 /*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 00:12:44 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/20 08:59:41 by kaveo            ###   ########.fr       */
+/*   Updated: 2024/12/20 16:31:01 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	check_chars(char *str)
+void	check_chars(t_stacks *stack_a, int ac, char **av)
+{
+	int	i;
+	int	j;
+
+	i = 1;
+	while (i < ac)
+	{
+		j = 0;
+		if (av[i][j] == '-' || av[i][j] == '+')
+		{
+			j++;
+			if (!ft_isdigit(av[i][j]))
+				exit_handler(stack_a, 1);
+			j++;
+		}
+		while (av[i][j])
+		{
+			if (!ft_isdigit(av[i][j]))
+				exit_handler(stack_a, 1);
+			j++;
+		}
+		i++;
+	}
+}
+void	check_len(t_stacks *stack_a, int ac, char **av)
+{
+	int i;
+	size_t j;
+
+	i = 1;
+	while (i < ac)
+	{
+		j = 0;
+		while (av[i][j] == '+' || av[i][j] == '-' || av[i][j] == '0')
+			j++;
+		while (ft_isdigit(av[i][j]))
+			j++;
+		if (j > ft_strlen("9223372036854775807"))
+			exit_handler(stack_a, 1);
+		i++;
+	}
+}
+
+void	check_limits(t_stacks *stack_a, int ac, char **av)
 {
 	int	i;
 
-	i = 0;
-	if (str[i] == '-' || str[i] == '+')
+	i = 1;
+	while (i < ac)
 	{
-		i++;
-		if (!ft_isdigit(str[i]))
-			exit_handler(NULL, 1);
-		i++;
-	}
-	while (str[i])
-	{
-		if (!ft_isdigit(str[i]))
-			exit_handler(NULL, 1);
+		if (ft_atol(av[i]) > INT_MAX || ft_atol(av[i]) < INT_MIN)
+			exit_handler(stack_a, 1);
 		i++;
 	}
 }
@@ -65,21 +102,3 @@ void	check_if_sorted(t_stacks *stack_a)
 	exit_handler(stack_a, 0);
 }
 
-void	check_len(char *str)
-{
-	size_t	i;
-
-	i = 0;
-	while (str[i] == '+' || str[i] == '-' || str[i] == '0')
-		str++;
-	while (ft_isdigit(str[i]))
-		i++;
-	if (i > ft_strlen("9223372036854775807"))
-		exit_handler(NULL, 1);
-}
-
-void	check_limits(char *str)
-{
-	if (ft_atol(str) > INT_MAX || ft_atol(str) < INT_MIN)
-		exit_handler(NULL, 1);
-}
