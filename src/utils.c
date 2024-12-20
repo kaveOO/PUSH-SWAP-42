@@ -6,16 +6,19 @@
 /*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 00:25:34 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/19 20:15:13 by kaveo            ###   ########.fr       */
+/*   Updated: 2024/12/20 07:24:31 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	exit_error(t_stacks *list)
+void	exit_handler(t_stacks *list, int i)
 {
 	if (list != NULL)
 		free_stack_list(list);
-	write(2, "Error\n", 6);
+	if (i == 1)
+	{
+		write(2, "Error\n", 6);
+	}
 	exit(1);
 }

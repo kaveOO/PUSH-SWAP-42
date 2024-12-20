@@ -6,7 +6,7 @@
 /*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 10:48:02 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/20 07:08:54 by kaveo            ###   ########.fr       */
+/*   Updated: 2024/12/20 07:34:14 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ void		stack_add_back(t_stacks **list, t_stacks *data);
 void		print_stack_list(t_stacks *list);
 void		free_stack_list(t_stacks *list);
 void		check_for_doubles(t_stacks *list);
-void		exit_error(t_stacks *list);
+void		exit_handler(t_stacks *list, int i);
+void		check_if_sorted(t_stacks *stack_a);
 
 
 #endif

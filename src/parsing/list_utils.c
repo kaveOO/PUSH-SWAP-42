@@ -6,7 +6,7 @@
 /*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 20:16:12 by kaveo             #+#    #+#             */
-/*   Updated: 2024/12/19 20:15:01 by kaveo            ###   ########.fr       */
+/*   Updated: 2024/12/20 07:39:10 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_stacks	*stack_lst_new(int data)
 
 	stack = malloc(sizeof(t_stacks));
 	if (!stack)
-		exit_error(NULL);
+		exit_handler(NULL, 1);
 	stack->stack_a = data;
 	stack->next = NULL;
 	return (stack);
@@ -70,9 +70,23 @@ void	check_for_doubles(t_stacks *list)
 		while (temp->next)
 		{
 			if (temp->next->stack_a == current->stack_a)
-				exit_error(list);
+				exit_handler(list, 1);
 			temp = temp->next;
 		}
 		current = current->next;
 	}
+}
+
+void	check_if_sorted(t_stacks *stack_a)
+{
+	t_stacks	*ptr;
+
+	ptr = stack_a;
+	while (ptr->next != NULL)
+	{
+		if (ptr->stack_a > ptr->next->stack_a)
+			return;
+		ptr = ptr->next;
+	}
+	exit_handler(stack_a, 0);
 }
