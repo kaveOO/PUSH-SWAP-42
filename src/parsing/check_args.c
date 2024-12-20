@@ -6,7 +6,7 @@
 /*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 00:11:24 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/20 07:09:49 by kaveo            ###   ########.fr       */
+/*   Updated: 2024/12/20 08:59:02 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,5 @@ t_stacks	*args_checker(int argc, char **argv)
 	{
 		return (args_handler(argc, argv));
 	}
-	return NULL;
+	return (NULL);
 }
