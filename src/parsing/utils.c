@@ -6,7 +6,7 @@
 /*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 00:12:44 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/20 16:31:01 by kaveo            ###   ########.fr       */
+/*   Updated: 2024/12/20 17:57:22 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	check_for_doubles(t_stacks *list)
 		temp = current;
 		while (temp->next)
 		{
-			if (temp->next->stack_a == current->stack_a)
+			if (temp->next->data == current->data)
 				exit_handler(list, 1);
 			temp = temp->next;
 		}
@@ -95,7 +95,7 @@ void	check_if_sorted(t_stacks *stack_a)
 	ptr = stack_a;
 	while (ptr->next != NULL)
 	{
-		if (ptr->stack_a > ptr->next->stack_a)
+		if (ptr->data > ptr->next->data)
 			return;
 		ptr = ptr->next;
 	}

@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   instructions.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/06 01:06:19 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/20 19:02:23 by kaveo            ###   ########.fr       */
+/*   Created: 2024/12/20 17:20:16 by kaveo             #+#    #+#             */
+/*   Updated: 2024/12/20 18:59:08 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+void	sort_2_digits(t_stacks *stack_a)
 {
-	t_stacks	*stack_a;
-	// t_stacks	*stack_b;
-
-	if (argc <= 2)
-		exit(1);
-	stack_a = init_a_stack(argc, argv);
-	is_valid_args(stack_a, argc, argv);
-	// stack_b = malloc(sizeof(t_stacks));
-	sort_list(argc, stack_a, NULL);
-	exit_handler(stack_a, 0);
-	// exit_handler(stack_b, 0);
+	stack_a->temp = stack_a->data;
+	stack_a->data = stack_a->next->data;
+	stack_a->next->data = stack_a->temp;
+	// ft_printf("%d %d", stack_a->data, stack_a->next->data);
+	ft_printf("sa\n");
 }
+

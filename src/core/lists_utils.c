@@ -6,7 +6,7 @@
 /*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 07:57:38 by kaveo             #+#    #+#             */
-/*   Updated: 2024/12/20 15:30:37 by kaveo            ###   ########.fr       */
+/*   Updated: 2024/12/20 17:57:47 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_stacks	*stack_lst_new(int data)
 	stack = malloc(sizeof(t_stacks));
 	if (!stack)
 		exit_handler(NULL, 1);
-	stack->stack_a = data;
+	stack->data = data;
 	stack->next = NULL;
 	return (stack);
 }
@@ -42,10 +42,10 @@ void	print_stack_list(t_stacks *list)
 {
 	while (list->next)
 	{
-		ft_printf("%d\n", list->stack_a);
+		ft_printf("%d\n", list->data);
 		list = list->next;
 	}
-	ft_printf("%d\n", list->stack_a);
+	ft_printf("%d\n", list->data);
 }
 
 void	free_stack_list(t_stacks *list)

@@ -6,7 +6,7 @@
 #    By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/11 00:18:47 by albillie          #+#    #+#              #
-#    Updated: 2024/12/20 16:28:32 by kaveo            ###   ########.fr        #
+#    Updated: 2024/12/20 17:59:08 by kaveo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,8 @@ SRC		=	src/parsing/is_valid_args.c	\
 			src/core/lists_utils.c		\
 			src/core/main.c				\
 			src/core/utils.c			\
+			src/algorithm/sort.c		\
+			src/algorithm/instructions.c\
 
 OBJ 		= $(SRC:.c=.o)
 

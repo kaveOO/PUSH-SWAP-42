@@ -6,7 +6,7 @@
 /*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 10:48:02 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/20 16:06:43 by kaveo            ###   ########.fr       */
+/*   Updated: 2024/12/20 18:43:58 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@
 
 typedef struct s_stacks
 {
-	int					stack_a;
+	int					data;
+	int					temp;
 	struct s_stacks		*next;
 }						t_stacks;
 
@@ -48,5 +49,11 @@ void		free_stack_list(t_stacks *list);
 // ? UTILS FUNCTIONS
 
 void		exit_handler(t_stacks *list, int i);
+
+// ? SORTING FUNCTIONS
+
+void	sort_list(int ac, t_stacks *stack_a, t_stacks *stack_b);
+void	sort_2_digits(t_stacks *stack_a);
+
 
 #endif
