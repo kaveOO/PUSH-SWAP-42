@@ -6,7 +6,7 @@
 /*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 10:48:02 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/21 09:45:51 by kaveo            ###   ########.fr       */
+/*   Updated: 2024/12/21 10:39:24 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ t_stacks	*stack_lst_new(int data);
 void		stack_add_back(t_stacks **list, t_stacks *data);
 void		print_stack_list(t_stacks *list);
 void		free_stack_list(t_stacks *list);
+int			get_list_size(t_stacks *stack);
 
 // ? UTILS FUNCTIONS
 
