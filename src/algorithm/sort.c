@@ -6,7 +6,7 @@
 /*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 17:21:36 by kaveo             #+#    #+#             */
-/*   Updated: 2024/12/20 18:58:54 by kaveo            ###   ########.fr       */
+/*   Updated: 2024/12/21 10:10:53 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 
 void	sort_list(int ac, t_stacks *stack_a, t_stacks *stack_b)
 {
-	(void) stack_a;
-	(void) stack_b;
+	stack_b = stack_lst_new(2);
+	stack_add_back(&stack_b, stack_lst_new(1));
 	if (ac == 3)
-	{
-		sort_2_digits(stack_a);
-	}
+		ft_sa(stack_a);
+	ft_sb(stack_b);
 }
