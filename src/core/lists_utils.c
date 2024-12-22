@@ -6,7 +6,7 @@
 /*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 07:57:38 by kaveo             #+#    #+#             */
-/*   Updated: 2024/12/22 15:18:38 by kaveo            ###   ########.fr       */
+/*   Updated: 2024/12/22 17:37:42 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,8 @@ void	free_stack_list(t_stacks *list)
 {
 	t_stacks	*temp;
 
-	if (!list->data)
-		return (free(list));
+	// if (!list->data)
+	// 	return (free(list));
 	while (list != NULL)
 	{
 		temp = list;
