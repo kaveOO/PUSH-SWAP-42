@@ -6,7 +6,7 @@
 /*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 10:48:02 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/21 19:24:45 by kaveo            ###   ########.fr       */
+/*   Updated: 2024/12/22 15:37:35 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,12 @@ void	exit_handler(t_stacks *stack_a, t_stacks *stack_b, int i);
 
 // ? SORTING FUNCTIONS
 
-void	sort_list(int ac, t_stacks *stack_a, t_stacks *stack_b);
+void	sort_list(t_stacks *stack_a, t_stacks *stack_b);
 void	ft_sa(t_stacks *stack_a);
 void	ft_sb(t_stacks *stack_b);
 void	ft_ss(t_stacks *stack_a, t_stacks *stack_b);
 void	ft_pa(t_stacks **stack_a, t_stacks *stack_b);
 void	ft_pb(t_stacks **stack_b, t_stacks *stack_a);
+void	ft_ra(t_stacks **stack_a);
 
 #endif

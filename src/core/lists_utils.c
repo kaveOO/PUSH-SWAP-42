@@ -6,7 +6,7 @@
 /*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 07:57:38 by kaveo             #+#    #+#             */
-/*   Updated: 2024/12/21 18:26:31 by kaveo            ###   ########.fr       */
+/*   Updated: 2024/12/22 15:18:38 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,11 @@ void	stack_add_back(t_stacks **list, t_stacks *data)
 {
 	t_stacks	*ptr;
 
+	if (!list)
+		return ;
 	ptr = (*list);
 	if (!ptr)
-		return ;
+		(*list) = data;
 	while (ptr->next)
 	{
 		ptr = ptr->next;

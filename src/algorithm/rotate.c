@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/06 01:06:19 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/22 14:39:22 by kaveo            ###   ########.fr       */
+/*   Created: 2024/12/22 14:48:53 by kaveo             #+#    #+#             */
+/*   Updated: 2024/12/22 16:20:42 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+void	ft_ra(t_stacks **stack_a)
 {
-	t_stacks	*stack_a;
-	t_stacks	*stack_b;
+	t_stacks	*ptr;
 
-	if (argc <= 2)
-		exit(1);
-	stack_a = init_a_stack(argc, argv);
-	is_valid_args(stack_a, argc, argv);
-	stack_b = ft_calloc(1, sizeof(t_stacks));
-	sort_list(stack_a, stack_b);
-	exit_handler(stack_a, stack_b, 0);
+	ptr = (*stack_a);
+	stack_add_back(stack_a, stack_lst_new(ptr->data));
+	(*stack_a) = ptr->next;
 }
+
+void	ft_rb(t_stacks *stack_a)
+{
+
+
+}
+
+// void	ft_rr(t_stacks *stack_a)
+// {
+
+
+
+// }

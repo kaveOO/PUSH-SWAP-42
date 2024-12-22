@@ -6,7 +6,7 @@
 #    By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/11 00:18:47 by albillie          #+#    #+#              #
-#    Updated: 2024/12/21 10:19:08 by kaveo            ###   ########.fr        #
+#    Updated: 2024/12/22 15:00:49 by kaveo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ SRC		=	src/parsing/is_valid_args.c	\
 			src/algorithm/sort.c		\
 			src/algorithm/swap.c		\
 			src/algorithm/push.c		\
+			src/algorithm/rotate.c		\
 
 OBJ 		= $(SRC:.c=.o)
 
