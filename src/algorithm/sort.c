@@ -6,16 +6,12 @@
 /*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 17:21:36 by kaveo             #+#    #+#             */
-/*   Updated: 2024/12/23 22:46:37 by kaveo            ###   ########.fr       */
+/*   Updated: 2024/12/23 22:50:53 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	change_head(t_stacks **stack_a)
-{
-	(*stack_a) = (*stack_a)->next;
-}
 void	sort_list(t_stacks *stack_a, t_stacks *stack_b)
 {
 	stack_b->data = 2;
@@ -28,9 +24,11 @@ void	sort_list(t_stacks *stack_a, t_stacks *stack_b)
 		ft_sa(stack_a);
 	// if (get_list_size(stack_a) == 3)
 		// sort_3_digits(&stack_a);
-	ft_rb(&stack_b, false);
+	ft_rr(&stack_a, &stack_b);
 	// change_head(&stack_a);
 	print_stack_list(stack_b);
+	ft_printf("\n");
+	print_stack_list(stack_a);
 }
 
 

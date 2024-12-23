@@ -6,7 +6,7 @@
 /*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 14:48:53 by kaveo             #+#    #+#             */
-/*   Updated: 2024/12/23 22:32:27 by kaveo            ###   ########.fr       */
+/*   Updated: 2024/12/23 22:50:05 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ void	ft_rb(t_stacks **stack_b, bool both)
 		ft_printf("rb\n");
 }
 
-/* void	ft_rr(t_stacks *stack_a, t_stacks *stack_b)
+void	ft_rr(t_stacks **stack_a, t_stacks **stack_b)
 {
 	ft_ra(stack_a, true);
 	ft_rb(stack_b, true);
 	ft_printf("rr\n");
-} */
+}
