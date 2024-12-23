@@ -6,7 +6,7 @@
 /*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 07:57:38 by kaveo             #+#    #+#             */
-/*   Updated: 2024/12/23 22:41:13 by kaveo            ###   ########.fr       */
+/*   Updated: 2024/12/23 23:11:58 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ t_stacks	*stack_lst_new(int data)
 
 void	stack_add_front(t_stacks **stack, t_stacks *data)
 {
-	data->next = *stack;
-	*stack = data;
+	data->next = (*stack);
+	(*stack) = data;
 }
 
 void	stack_add_back(t_stacks **list, t_stacks *data)
