@@ -6,7 +6,7 @@
 /*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 10:48:02 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/23 15:37:50 by kaveo            ###   ########.fr       */
+/*   Updated: 2024/12/23 22:31:13 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,9 @@ void	ft_sb(t_stacks *stack_b);
 void	ft_ss(t_stacks *stack_a, t_stacks *stack_b);
 void	ft_pa(t_stacks **stack_a, t_stacks *stack_b);
 void	ft_pb(t_stacks **stack_b, t_stacks *stack_a);
-void	ft_ra(t_stacks *stack_a);
-void	ft_rb(t_stacks *stack_b);
+void	ft_ra(t_stacks **stack_a, bool both);
+void	ft_rb(t_stacks **stack_b, bool both);
 void	ft_rr(t_stacks *stack_a, t_stacks *stack_b);
+void	sort_3_digits(t_stacks **stack_a);
 
 #endif
