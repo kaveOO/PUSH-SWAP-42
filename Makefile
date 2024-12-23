@@ -6,7 +6,7 @@
 #    By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/11 00:18:47 by albillie          #+#    #+#              #
-#    Updated: 2024/12/22 15:00:49 by kaveo            ###   ########.fr        #
+#    Updated: 2024/12/23 09:43:44 by kaveo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ SRC		=	src/parsing/is_valid_args.c	\
 			src/core/lists_utils.c		\
 			src/core/main.c				\
 			src/core/utils.c			\
+			src/core/inits.c			\
 			src/algorithm/sort.c		\
 			src/algorithm/swap.c		\
 			src/algorithm/push.c		\

@@ -6,7 +6,7 @@
 /*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 10:48:02 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/22 18:11:46 by kaveo            ###   ########.fr       */
+/*   Updated: 2024/12/23 15:37:50 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_stacks
 // ? INIT FUNCTIONS
 
 t_stacks	*init_a_stack(int ac, char **av);
+t_stacks	*init_b_stack(int data);
 
 // ? PARSING FUNCTIONS
 
@@ -60,8 +61,8 @@ void	ft_sb(t_stacks *stack_b);
 void	ft_ss(t_stacks *stack_a, t_stacks *stack_b);
 void	ft_pa(t_stacks **stack_a, t_stacks *stack_b);
 void	ft_pb(t_stacks **stack_b, t_stacks *stack_a);
-void	ft_ra(t_stacks **stack_a);
-void	ft_rb(t_stacks **stack_b);
-void	ft_rr(t_stacks **stack_a, t_stacks **stack_b);
+void	ft_ra(t_stacks *stack_a);
+void	ft_rb(t_stacks *stack_b);
+void	ft_rr(t_stacks *stack_a, t_stacks *stack_b);
 
 #endif
