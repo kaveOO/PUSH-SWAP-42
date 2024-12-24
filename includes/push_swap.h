@@ -6,7 +6,7 @@
 /*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 10:48:02 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/23 23:29:52 by kaveo            ###   ########.fr       */
+/*   Updated: 2024/12/24 11:13:56 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ void	ft_pb(t_stacks **stack_b, t_stacks *stack_a);
 void	ft_ra(t_stacks **stack_a, bool both);
 void	ft_rb(t_stacks **stack_b, bool both);
 void	ft_rr(t_stacks **stack_a, t_stacks **stack_b);
-void	ft_rra(t_stacks **stack_a);
+void	ft_rra(t_stacks **stack_a, bool both);
+void	ft_rrb(t_stacks **stack_b, bool both);
+void	ft_rrr(t_stacks **stack_a, t_stacks **stack_b);
 
 #endif

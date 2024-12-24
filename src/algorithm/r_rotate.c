@@ -6,34 +6,55 @@
 /*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 22:57:06 by kaveo             #+#    #+#             */
-/*   Updated: 2024/12/23 23:40:50 by kaveo            ###   ########.fr       */
+/*   Updated: 2024/12/24 11:13:19 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// TODO Have to find a way to delete the last node of linked list with no leaks and finish instructions
-
-void	ft_rra(t_stacks **stack_a)
+void	ft_rra(t_stacks **stack_a, bool both)
 {
-	t_stacks	*ptr;
+	t_stacks	*last;
+	t_stacks	*prev_last;
 
-	ptr = (*stack_a);
-	while (ptr->next != NULL)
+	last = (*stack_a);
+	prev_last = NULL;
+
+	while (last->next != NULL)
 	{
-		ptr = ptr->next;
+		prev_last = last;
+		last = last->next;
 	}
-	ptr->temp = ptr->data;
-	stack_add_front(stack_a, stack_lst_new(ptr->data));
-	// free(ptr);
-	ptr = NULL;
-	// ft_printf("%d\n", ptr->temp);
+	prev_last->next = NULL;
+	last->next = (*stack_a);
+	(*stack_a) = last;
+	if (!both)
+		ft_printf("rra\n");
 }
 
-/* void	ft_rrb(t_stacks *stack_b)
+void	ft_rrb(t_stacks **stack_b, bool both)
 {
+	t_stacks	*last;
+	t_stacks	*prev_last;
 
+	last = (*stack_b);
+	prev_last = NULL;
 
+	while (last->next != NULL)
+	{
+		prev_last = last;
+		last = last->next;
+	}
+	prev_last->next = NULL;
+	last->next = (*stack_b);
+	(*stack_b) = last;
+	if (!both)
+		ft_printf("rrb\n");
+}
 
-
-} */
+void	ft_rrr(t_stacks **stack_a, t_stacks **stack_b)
+{
+	ft_rra(stack_a, true);
+	ft_rrb(stack_b, true);
+	ft_printf("rrr\n");
+}
