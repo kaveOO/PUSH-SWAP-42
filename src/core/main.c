@@ -6,7 +6,7 @@
 /*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 01:06:19 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/23 22:45:59 by kaveo            ###   ########.fr       */
+/*   Updated: 2024/12/25 01:08:22 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ int	main(int argc, char **argv)
 	stack_b = malloc(sizeof(t_stacks));
 	sort_list(stack_a, stack_b);
 	// free(stack_b);
-	exit_handler(stack_a, stack_b, 0);
+	exit_handler(stack_a, NULL, 0);
 }
