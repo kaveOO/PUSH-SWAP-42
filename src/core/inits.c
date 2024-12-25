@@ -6,7 +6,7 @@
 /*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 09:39:47 by kaveo             #+#    #+#             */
-/*   Updated: 2024/12/25 01:05:03 by kaveo            ###   ########.fr       */
+/*   Updated: 2024/12/25 10:18:26 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ t_stacks	*init_b_stack(t_stacks *stack_a)
 	t_stacks	*stack_b;
 
 	stack_b = malloc(sizeof(t_stacks));
-	stack_b->data = stack_a->data;
-	stack_b->next = malloc(sizeof(t_stacks));
-	stack_b->next->data = stack_a->next->data;
-	stack_b->next->next = NULL;
+	stack_b->data = 0;
+	stack_b->next = NULL;
+	ft_pb(&stack_b, &stack_a);
+	ft_pb(&stack_b, &stack_a);
 	return (stack_b);
 }
