@@ -6,11 +6,13 @@
 /*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 01:06:19 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/25 01:10:10 by kaveo            ###   ########.fr       */
+/*   Updated: 2024/12/26 23:28:57 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+// TODO Have to fix ft_ra && ft_rb, theses functions are leaking because of lstnew !
 
 int	main(int argc, char **argv)
 {
@@ -19,8 +21,9 @@ int	main(int argc, char **argv)
 	if (argc <= 2)
 		exit(1);
 	stack_a = init_a_stack(argc, argv);
-	is_valid_args(stack_a, argc, argv);
-	sort_list(stack_a);
+	// is_valid_args(stack_a, argc, argv);
+	// sort_list(stack_a);
+	ft_ra(&stack_a, false);
 	// free(stack_b);
 	exit_handler(stack_a, NULL, 0);
 }
