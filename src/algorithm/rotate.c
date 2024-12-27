@@ -6,7 +6,7 @@
 /*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 14:48:53 by kaveo             #+#    #+#             */
-/*   Updated: 2024/12/24 11:15:29 by kaveo            ###   ########.fr       */
+/*   Updated: 2024/12/27 00:16:52 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,13 @@ void	ft_ra(t_stacks **stack_a, bool both)
 	ptr = (*stack_a);
 	if (!ptr)
 		return ;
-	stack_add_back(&ptr, stack_lst_new(ptr->data));
+	int temp = ptr->data;
+	while (ptr->next)
+	{
+		ptr = ptr->next;
+	}
+	ptr->next = malloc(sizeof(t_stacks));
+	ptr->next->data = temp;
 	(*stack_a) = (*stack_a)->next;
 	if (!both)
 		ft_printf("ra\n");
