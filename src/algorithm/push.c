@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 10:19:10 by kaveo             #+#    #+#             */
-/*   Updated: 2024/12/24 17:32:43 by kaveo            ###   ########.fr       */
+/*   Updated: 2024/12/28 02:40:58 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,25 @@
 
 void	ft_pa(t_stacks **stack_a, t_stacks **stack_b)
 {
-	t_stacks	*ptr;
+	t_stacks	*temp;
 
 	if (get_list_size((*stack_b)) < 1)
 		return ;
-	ptr = malloc(sizeof(t_stacks));
-	ptr->data = (*stack_b)->data;
-	ptr->next = (*stack_a);
-	(*stack_a) = ptr;
-	(*stack_b) = (*stack_b)->next;
+	stack_add_front(stack_a, stack_lst_new((*stack_b)->data));
+	temp = (*stack_b);
+	(*stack_b) = temp->next;
+	free(temp);
+	ft_printf("pa\n");
 }
 void	ft_pb(t_stacks **stack_b, t_stacks **stack_a)
 {
-	t_stacks	*ptr;
+	t_stacks	*temp;
 
 	if (get_list_size((*stack_a)) < 1)
 		return ;
-	ptr = malloc(sizeof(t_stacks));
-	ptr->data = (*stack_a)->data;
-	ptr->next = (*stack_b);
-	(*stack_b) = ptr;
-	(*stack_a) = (*stack_a)->next;
+	stack_add_front(stack_b, stack_lst_new((*stack_a)->data));
+	temp = (*stack_a);
+	(*stack_a) = temp->next;
+	free(temp);
+	ft_printf("pb\n");
 }
