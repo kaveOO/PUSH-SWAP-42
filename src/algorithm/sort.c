@@ -6,7 +6,7 @@
 /*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 17:21:36 by kaveo             #+#    #+#             */
-/*   Updated: 2024/12/28 22:40:07 by kaveo            ###   ########.fr       */
+/*   Updated: 2024/12/28 23:03:15 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,7 @@ void sort_list(t_stacks **stack_a, t_stacks **stack_b, t_chunks *chunks)
 		sort_3_digits(stack_a);
 	else if (get_list_size(*stack_a) > 3)
 	{
-		print_array(chunks->array);
 		chunk_sort(stack_a, stack_b, chunks);
-		print_stack_list(*stack_b);
 	}
 }
 
@@ -86,14 +84,12 @@ void chunk_sort(t_stacks **sa, t_stacks **sb, t_chunks *chunks)
 
 bool elements_in_chunks(t_chunks *chunks, t_stacks **stack_a)
 {
-	(void) stack_a;
-
-	int i = 1;
+	int i = 0;
 	int j;
 	t_stacks	*ptr = (*stack_a);
 	if (!ptr)
 		return NULL;
-	while (i < chunks->size && i < get_list_size(*stack_a))
+	while (i < chunks->size && ptr->next)
 	{
 		j = chunks->start;
 		while (j <= chunks->end)
@@ -109,7 +105,7 @@ bool elements_in_chunks(t_chunks *chunks, t_stacks **stack_a)
 }
 void update_chunks_pos(t_chunks *chunks, t_stacks **stack_a)
 {
-	if (elements_in_chunks(chunks, stack_a))
+	if (!elements_in_chunks(chunks, stack_a))
 	{
 		if (chunks->start - chunks->offset < 0)
 			chunks->start -= chunks->start;
