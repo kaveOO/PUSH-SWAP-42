@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   chunk_array.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 03:32:27 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/28 06:41:27 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/28 08:45:46 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	fill_sort_array(t_stacks **stack_a)
+int	*fill_sort_array(t_stacks **stack_a)
 {
 	t_stacks	*ptr;
 	int			*array;
@@ -20,7 +20,7 @@ void	fill_sort_array(t_stacks **stack_a)
 
 	array = malloc(sizeof(int *) * (get_list_size(*stack_a)));
 	if (!array)
-		return ;
+		return NULL;
 	ptr = (*stack_a);
 	i = 0;
 	while (ptr)
@@ -30,8 +30,23 @@ void	fill_sort_array(t_stacks **stack_a)
 		ptr = ptr->next;
 	}
 	array[i] = '\0';
-	print_array(array);
+	// free(array);
+	bubble_sort_array(array);
+	return (array);
 }
+
+// void	free_chunks_array(int *array)
+// {
+// 	int	i;
+
+// 	i = 0;
+// 	while (i < get_array_size(array))
+// 	{
+// 		free(array[i]);
+// 		i++;
+// 	}
+// 	free(array);
+// }
 
 void	print_array(int *array)
 {
@@ -44,29 +59,35 @@ void	print_array(int *array)
 	free(array);
 }
 
-
-void	pre_sort_stack(t_stacks **stack_a)
+int	get_array_size(int *array)
 {
-	t_stacks	*ptr;
-	t_stacks	*temp;
-	int			i;
+	int	i;
 
-	temp = malloc(sizeof(t_stacks));
 	i = 0;
-	while (i < get_list_size(*stack_a))
+	while (array[i])
 	{
-		ptr = (*stack_a);
-		while (ptr->next)
+		i++;
+	}
+	return (i);
+}
+
+void	bubble_sort_array(int *array)
+{
+	int	i;
+	int j;
+
+	i = 0;
+	while (i < get_array_size(array))
+	{
+		j = 0;
+		while (j < get_array_size(array) - 1)
 		{
-			if (ptr->data > ptr->next->data)
+			if (array[j] > array[j + 1])
 			{
-				temp->data = ptr->data;
-				ptr->data = ptr->next->data;
-				ptr->next->data = temp->data;
+				ft_swap(&array[j], &array[j + 1]);
 			}
-			ptr = ptr->next;
+			j++;
 		}
 		i++;
 	}
-	free(temp);
 }

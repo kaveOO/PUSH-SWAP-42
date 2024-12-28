@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 01:06:19 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/28 06:03:37 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/28 10:15:46 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,37 +16,44 @@ int	main(int argc, char **argv)
 {
 	t_stacks	*stack_a;
 	t_stacks	*stack_b;
-	// t_chunks	*chunks;
+	t_chunks	*chunks;
 
 	if (argc <= 2)
 		exit(1);
-	stack_a = init_a_stack(argc, argv);
 	stack_b = NULL;
-	// chunks = ;
-	is_valid_args(stack_a, argc, argv);
-	// stack_b = stack_lst_new(21);
-	// stack_add_back(&stack_b, stack_lst_new(43));
-	sort_list(stack_a, stack_b);
-	// ft_ra(&stack_a, false);
-	// ft_sa(stack_a, false);
-	// ft_sb(stack_b, false);
+	stack_a = init_stack_a(argc, argv);
+	chunks = init_chunks_stack(&stack_a);
+	if (!is_valid_args(stack_a, argc, argv))
+		exit_handler(stack_a, stack_b, chunks, 1);
+	if (!check_for_doubles(stack_a))
+		exit_handler(stack_a, stack_b, chunks, 0);
 	// ft_rra(&stack_a, false);
-	// ft_rrb(&stack_b, false);
-	// ft_ra(&stack_a, false);
-	// ft_rb(&stack_b, false);
-	// ft_pa(&stack_a, &stack_b);
-	// ft_pb(&stack_b, &stack_a);
-	// ft_rr(&stack_a, &stack_b);
-	// ft_rrr(&stack_a, &stack_b);
-	// // ft_ss(stack_a, stack_b);
-
-	// print_stack_list(stack_a);
-	// ft_printf("\n");
-	// print_stack_list(stack_b);
-	// free_stack_list(stack_b);
-	// free_stack_list(stack_a);
-	// ft_ra(&stack_a, false);
-	// print_stack_list(stack_a);
-	// free(stack_b);
-	exit_handler(stack_a, stack_b, 0);
+	// ft_sa(stack_a, false);
+	// sort_list(stack_a, stack_b);
+	// if (get_list_size(stack_a) == 3)
+	// {
+	// 	if ((stack_a->data > stack_a->next->data) &&
+	// 	(stack_a->data > stack_a->next->next->data))
+	// 	{
+	// 		ft_ra(&stack_a, false);
+	// 	}
+	// 	else if (stack_a->next->data > stack_a->data
+	// 		&& stack_a->next->data > stack_a->next->next->data)
+	// 	{
+	// 		ft_rra(&stack_a, false);
+	// 	}
+	// 	else if (stack_a->data > stack_a->next->data)
+	// 	{
+	// 		ft_sa(stack_a, false);
+	// 	}
+	// }
+	ft_ra(&stack_a, false);
+	print_stack_list(stack_a);
+	// ft_sa(stack_a, false);
+	// ft_sa(stack_a, false);
+	// ft_sa(stack_a, false);
+	// ft_sa(stack_a, false);
+	// ft_sa(stack_a, false);
+	// ft_sa(stack_a, false);
+	exit_handler(stack_a, stack_b, chunks, 0);
 }

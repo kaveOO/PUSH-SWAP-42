@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 00:12:44 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/21 18:25:30 by kaveo            ###   ########.fr       */
+/*   Updated: 2024/12/28 09:12:17 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	check_chars(t_stacks *stack_a, int ac, char **av)
+bool	check_chars(int ac, char **av)
 {
 	int	i;
 	int	j;
@@ -25,19 +25,20 @@ void	check_chars(t_stacks *stack_a, int ac, char **av)
 		{
 			j++;
 			if (!ft_isdigit(av[i][j]))
-				exit_handler(stack_a, NULL, 1);
+				return (false);
 			j++;
 		}
 		while (av[i][j])
 		{
 			if (!ft_isdigit(av[i][j]))
-				exit_handler(stack_a, NULL, 1);
+				return (false);
 			j++;
 		}
 		i++;
 	}
+	return (true);
 }
-void	check_len(t_stacks *stack_a, int ac, char **av)
+bool	check_len(int ac, char **av)
 {
 	int i;
 	size_t j;
@@ -51,12 +52,13 @@ void	check_len(t_stacks *stack_a, int ac, char **av)
 		while (ft_isdigit(av[i][j]))
 			j++;
 		if (j > ft_strlen("9223372036854775807"))
-			exit_handler(stack_a, NULL, 1);
+			return (false);
 		i++;
 	}
+	return (true);
 }
 
-void	check_limits(t_stacks *stack_a, int ac, char **av)
+bool	check_limits(int ac, char **av)
 {
 	int	i;
 
@@ -64,12 +66,13 @@ void	check_limits(t_stacks *stack_a, int ac, char **av)
 	while (i < ac)
 	{
 		if (ft_atol(av[i]) > INT_MAX || ft_atol(av[i]) < INT_MIN)
-			exit_handler(stack_a, NULL, 1);
+			return (false);
 		i++;
 	}
+	return (true);
 }
 
-void	check_for_doubles(t_stacks *list)
+bool	check_for_doubles(t_stacks *list)
 {
 	t_stacks *current;
 	t_stacks *temp;
@@ -81,14 +84,15 @@ void	check_for_doubles(t_stacks *list)
 		while (temp->next)
 		{
 			if (temp->next->data == current->data)
-				exit_handler(list, NULL, 1);
+				return (false);
 			temp = temp->next;
 		}
 		current = current->next;
 	}
+	return (true);
 }
 
-void	check_if_sorted(t_stacks *stack_a)
+bool	check_if_sorted(t_stacks *stack_a)
 {
 	t_stacks	*ptr;
 
@@ -96,9 +100,9 @@ void	check_if_sorted(t_stacks *stack_a)
 	while (ptr->next != NULL)
 	{
 		if (ptr->data > ptr->next->data)
-			return;
+			return (false);
 		ptr = ptr->next;
 	}
-	exit_handler(stack_a, NULL, 0);
+	return (true);
 }
 

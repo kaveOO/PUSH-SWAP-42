@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 10:48:02 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/28 06:20:52 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/28 10:15:00 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,17 +37,17 @@ typedef struct s_stacks
 
 // ? INIT FUNCTIONS
 
-t_stacks	*init_a_stack(int ac, char **av);
-t_stacks	*init_b_stack(t_stacks *stack_a);
+t_stacks	*init_stack_a(int ac, char **av);
+t_chunks	*init_chunks_stack(t_stacks **stack_a);
 
 // ? PARSING FUNCTIONS
 
-void		is_valid_args(t_stacks *stack_a, int ac, char **av);
-void		check_chars(t_stacks *stack_a, int ac, char **av);
-void		check_limits(t_stacks *stack_a, int ac, char **av);
-void		check_len(t_stacks *stack_a, int ac, char **av);
-void		check_for_doubles(t_stacks *list);
-void		check_if_sorted(t_stacks *stack_a);
+bool		is_valid_args(t_stacks *stack_a, int ac, char **av);
+bool		check_chars(int ac, char **av);
+bool		check_limits(int ac, char **av);
+bool		check_len(int ac, char **av);
+bool		check_for_doubles(t_stacks *list);
+bool		check_if_sorted(t_stacks *stack_a);
 
 // ? LISTS FUNCTIONS
 
@@ -58,20 +58,25 @@ void		free_stack_list(t_stacks *list);
 int			get_list_size(t_stacks *stack);
 void		stack_add_front(t_stacks **stack, t_stacks *data);
 
-// ? UTILS FUNCTIONS
+// ? HANDLING UTILS FUNCTIONS
 
-void	exit_handler(t_stacks *stack_a, t_stacks *stack_b, int i);
+void	exit_handler(t_stacks *sa, t_stacks *sb, t_chunks *chunks, int i);
+
+// ? CHUNKS UTILS
+
+int		get_chunks_count(int lst_size);
+void	free_chunks_array(int *array);
+void	free_chunks_list(t_chunks *chunks);
+int		get_array_size(int *array);
+
 
 // ? SORTING FUNCTIONS
 
 void	sort_list(t_stacks *stack_a, t_stacks *stack_b);
-void	sort_3_digits(t_stacks **stack_a);
-void	pre_sort_stack(t_stacks **stack_a);
-void	fill_sort_array(t_stacks **stack_a);
+void	sort_3_digits(t_stacks *stack_a);
+int		*fill_sort_array(t_stacks **stack_a);
 void	print_array(int *array);
 void	bubble_sort_array(int *array);
-
-
 
 // ? INSTRUCTIONS
 

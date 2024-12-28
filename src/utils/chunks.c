@@ -1,28 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_valid_args.c                                    :+:      :+:    :+:   */
+/*   chunks.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/11 00:09:24 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/28 09:14:06 by albillie         ###   ########.fr       */
+/*   Created: 2024/12/28 07:54:41 by albillie          #+#    #+#             */
+/*   Updated: 2024/12/28 08:46:42 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-bool	is_valid_args(t_stacks *stack_a, int ac, char **av)
+int	get_chunks_count(int lst_size)
 {
-	if (!check_chars(ac, av))
-		return (false);
-	else if (!check_limits(ac, av))
-		return (false);
-	else if (!check_len(ac, av))
-		return (false);
-	else if (!check_for_doubles(stack_a))
-		return (false);
-	else
-		return (true);
+	int	chunks_count;
+
+	chunks_count = 0;
+	if (lst_size <= 10)
+	{
+		chunks_count = 5;
+	}
+	else if (lst_size <= 150)
+	{
+		chunks_count = 8;
+	}
+	else if (lst_size > 150)
+	{
+		chunks_count = 18;
+	}
+	return (chunks_count);
 }
 
+void	free_chunks_list(t_chunks *chunks)
+{
+	// if (chunks->array)
+	// 	free_chunks_array(chunks->array);
+	free(chunks->array);
+	free(chunks);
+	chunks = NULL;
+}

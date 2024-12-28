@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lists_utils.c                                      :+:      :+:    :+:   */
+/*   lists.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 07:57:38 by kaveo             #+#    #+#             */
-/*   Updated: 2024/12/28 04:32:17 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/28 10:04:28 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_stacks	*stack_lst_new(int data)
 
 	stack = malloc(sizeof(t_stacks));
 	if (!stack)
-		exit_handler(NULL, NULL, 1);
+		exit_handler(NULL, NULL, NULL, 1);
 	stack->data = data;
 	stack->next = NULL;
 	return (stack);
@@ -60,6 +60,8 @@ void	free_stack_list(t_stacks *list)
 {
 	t_stacks	*temp;
 
+	if (list== NULL)
+		free(list);
 	while (list != NULL)
 	{
 		temp = list;
