@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 03:32:27 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/28 10:39:54 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/28 17:15:07 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	*fill_sort_array(t_stacks **stack_a)
 	int			*array;
 	int			i;
 
-	array = malloc(sizeof(int *) * (get_list_size(*stack_a)));
+	array = malloc(sizeof(int *) * (get_list_size(*stack_a) + 1));
 	if (!array)
 		return NULL;
 	ptr = (*stack_a);
@@ -30,32 +30,19 @@ int	*fill_sort_array(t_stacks **stack_a)
 		i++;
 	}
 	array[i] = '\0';
-	bubble_sort_array(array);
-	return (array);
+	return (bubble_sort_array(array));
 }
-
-// void	free_chunks_array(int *array)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	while (i < get_array_size(array))
-// 	{
-// 		free(array[i]);
-// 		i++;
-// 	}
-// 	free(array);
-// }
 
 void	print_array(int *array)
 {
 	int i = 0;
 	while (array[i])
 	{
-		ft_printf("%d\n", array[i]);
+		ft_printf("%d ", array[i]);
 		i++;
 	}
-	free(array);
+	ft_printf("\n");
+	ft_printf("\n");
 }
 
 int	get_array_size(int *array)
@@ -70,7 +57,7 @@ int	get_array_size(int *array)
 	return (i);
 }
 
-void	bubble_sort_array(int *array)
+int	*bubble_sort_array(int *array)
 {
 	int	i;
 	int j;
@@ -89,4 +76,5 @@ void	bubble_sort_array(int *array)
 		}
 		i++;
 	}
+	return (array);
 }

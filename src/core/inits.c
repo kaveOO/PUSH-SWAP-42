@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 09:39:47 by kaveo             #+#    #+#             */
-/*   Updated: 2024/12/28 10:40:57 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/28 17:10:56 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,11 @@ t_chunks	*init_chunks_stack(t_stacks **stack_a)
 	chunks = malloc(sizeof(t_chunks));
 	if (!chunks)
 		return NULL;
+	chunks->size = get_list_size(*stack_a);
 	chunks->array = fill_sort_array(stack_a);
 	chunks->chunks_count = get_chunks_count(get_list_size(*stack_a));
-	chunks->middle = get_list_size(*stack_a) / 2;
-	chunks->offset = get_list_size(*stack_a) / chunks->chunks_count;
+	chunks->middle = chunks->size / 2;
+	chunks->offset = chunks->size / chunks->chunks_count;
 	chunks->start = chunks->middle - chunks->offset;
 	chunks->end = chunks->middle + chunks->offset;
 	return (chunks);

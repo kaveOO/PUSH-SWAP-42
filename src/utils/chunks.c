@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 07:54:41 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/28 10:43:18 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/28 15:13:01 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,14 @@
 
 int	get_chunks_count(int lst_size)
 {
-	int	chunks_count;
-
-	chunks_count = 0;
-	if (lst_size <= 10)
+	if (lst_size <= 200)
 	{
-		chunks_count = 5;
+		return (4);
 	}
-	else if (lst_size <= 150)
+	else
 	{
-		chunks_count = 8;
+		return (8);
 	}
-	else if (lst_size > 150)
-	{
-		chunks_count = 18;
-	}
-	return (chunks_count);
 }
 
 void	free_chunks_list(t_chunks *chunks)

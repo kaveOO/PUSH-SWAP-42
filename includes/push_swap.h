@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 10:48:02 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/28 11:02:19 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/28 18:25:35 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_chunks
 	int 				offset;
 	int 				start;
 	int 				end;
+	int					size;
 }						t_chunks;
 
 typedef struct s_stacks
@@ -67,15 +68,20 @@ void	exit_handler(t_stacks *sa, t_stacks *sb, t_chunks *chunks, int i);
 int		get_chunks_count(int lst_size);
 void	free_chunks_list(t_chunks *chunks);
 int		get_array_size(int *array);
+int		get_element_pos(t_chunks *chunks, int data);
+void	update_chunks_pos(t_chunks *chunks, t_stacks **stack_a);
+bool	elements_in_chunks(t_chunks *chunks, t_stacks **stack_a);
 
 
 // ? SORTING FUNCTIONS
 
-void	sort_list(t_stacks **stack_a, t_stacks **stack_b);
+void	sort_list(t_stacks **stack_a, t_stacks **stack_b, t_chunks *chunks);
 void	sort_3_digits(t_stacks **stack_a);
+void	chunk_sort(t_stacks **sa, t_stacks **sb, t_chunks *chunks);
 int		*fill_sort_array(t_stacks **stack_a);
 void	print_array(int *array);
-void	bubble_sort_array(int *array);
+int		*bubble_sort_array(int *array);
+
 
 // ? INSTRUCTIONS
 
