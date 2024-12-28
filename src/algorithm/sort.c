@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 17:21:36 by kaveo             #+#    #+#             */
-/*   Updated: 2024/12/28 20:29:13 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/28 22:40:07 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,25 +21,10 @@ void sort_list(t_stacks **stack_a, t_stacks **stack_b, t_chunks *chunks)
 		sort_3_digits(stack_a);
 	else if (get_list_size(*stack_a) > 3)
 	{
-		*stack_b = stack_lst_new(452);
-		// print_stack_list(*stack_b);
-		// ft_pa(stack_a, stack_b);
-		// ft_printf("\n");
 		print_array(chunks->array);
 		chunk_sort(stack_a, stack_b, chunks);
-		// ft_printf("%d\n", chunks->size);
-		// int i = 0;
-		// while (i < chunks->size)
-		// {
-		// 	ft_printf("%d\n", chunks->array[i]);
-		// 	i++;
-		// }
-		//ft_pa(stack_a, stack_b);
-
-		//print_stack_list(*stack_a);
-		//ft_printf("\n");
-		//print_stack_list(*stack_b);
-	}	
+		print_stack_list(*stack_b);
+	}
 }
 
 void sort_3_digits(t_stacks **stack_a)
@@ -79,30 +64,21 @@ int get_element_pos(t_chunks *chunks, int data)
 
 void chunk_sort(t_stacks **sa, t_stacks **sb, t_chunks *chunks)
 {
-	// t_stacks *ptr;
-	(void)sb;
-	(void)chunks;
-	(void) sa;
-	int i = 0;
-
-	t_stacks	*ptr;
-	ptr = (*sa);
-	while (i < get_list_size(*sa))
+	while (*sa)
 	{
-		ptr = (*sa);
-		if (get_element_pos(chunks, ptr->data) == -1)
+		int count = get_element_pos(chunks, (*sa)->data);
+		if (count == 1)
 		{
 			ft_pb(sb, sa);
-			ft_rb(sb, true);
-			//printf("test -1\n");
 		}
-		else if (get_element_pos(chunks, ptr->data) == 1)
+		else if (count == -1)
 		{
 			ft_pb(sb, sa);
+			ft_rb(sb, false);
 		}
 		else
 		{
-			ft_ra(sa, true);
+			ft_ra(sa, false);
 		}
 		update_chunks_pos(chunks, sa);
 	}
@@ -123,11 +99,7 @@ bool elements_in_chunks(t_chunks *chunks, t_stacks **stack_a)
 		while (j <= chunks->end)
 		{
 			if (ptr->data == chunks->array[j])
-			{
-				//ft_printf("\n%d\n", chunks->array[j]);
-				//ft_printf("\n%d\n", ptr->data);
 				return (true);
-			}
 			j++;
 		}
 		ptr = ptr->next;
@@ -144,7 +116,7 @@ void update_chunks_pos(t_chunks *chunks, t_stacks **stack_a)
 		else
 			chunks->start -= chunks->offset;
 		if (chunks->end + chunks->offset > chunks->size)
-			chunks->end = chunks->offset - 1;
+			chunks->end = chunks->size - 1;
 		else
 			chunks->end += chunks->offset;
 	}

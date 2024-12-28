@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 10:19:10 by kaveo             #+#    #+#             */
-/*   Updated: 2024/12/28 19:01:27 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/28 21:34:27 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ void	ft_pb(t_stacks **stack_b, t_stacks **stack_a)
 {
 	t_stacks	*temp;
 
+	if (!stack_b)
+		*stack_b = *stack_a;
 	if (get_list_size((*stack_a)) < 1)
 		return ;
 	stack_add_front(stack_b, stack_lst_new((*stack_a)->data));
