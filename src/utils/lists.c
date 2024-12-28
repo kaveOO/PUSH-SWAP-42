@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 07:57:38 by kaveo             #+#    #+#             */
-/*   Updated: 2024/12/28 10:04:28 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/28 10:50:40 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,6 @@ void	free_stack_list(t_stacks *list)
 {
 	t_stacks	*temp;
 
-	if (list== NULL)
-		free(list);
 	while (list != NULL)
 	{
 		temp = list;

@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 07:54:41 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/28 08:46:42 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/28 10:43:18 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,7 @@ int	get_chunks_count(int lst_size)
 
 void	free_chunks_list(t_chunks *chunks)
 {
-	// if (chunks->array)
-	// 	free_chunks_array(chunks->array);
-	free(chunks->array);
+	if (chunks->array)
+		free(chunks->array);
 	free(chunks);
-	chunks = NULL;
 }

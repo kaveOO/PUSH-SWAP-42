@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 03:32:27 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/28 08:45:46 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/28 10:39:54 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,10 @@ int	*fill_sort_array(t_stacks **stack_a)
 	while (ptr)
 	{
 		array[i] = ptr->data;
-		i++;
 		ptr = ptr->next;
+		i++;
 	}
 	array[i] = '\0';
-	// free(array);
 	bubble_sort_array(array);
 	return (array);
 }

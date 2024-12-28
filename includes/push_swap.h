@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 10:48:02 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/28 10:15:00 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/28 11:02:19 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,15 +65,14 @@ void	exit_handler(t_stacks *sa, t_stacks *sb, t_chunks *chunks, int i);
 // ? CHUNKS UTILS
 
 int		get_chunks_count(int lst_size);
-void	free_chunks_array(int *array);
 void	free_chunks_list(t_chunks *chunks);
 int		get_array_size(int *array);
 
 
 // ? SORTING FUNCTIONS
 
-void	sort_list(t_stacks *stack_a, t_stacks *stack_b);
-void	sort_3_digits(t_stacks *stack_a);
+void	sort_list(t_stacks **stack_a, t_stacks **stack_b);
+void	sort_3_digits(t_stacks **stack_a);
 int		*fill_sort_array(t_stacks **stack_a);
 void	print_array(int *array);
 void	bubble_sort_array(int *array);
