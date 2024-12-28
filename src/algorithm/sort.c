@@ -6,7 +6,7 @@
 /*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 17:21:36 by kaveo             #+#    #+#             */
-/*   Updated: 2024/12/28 23:03:15 by kaveo            ###   ########.fr       */
+/*   Updated: 2024/12/29 00:34:47 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void sort_list(t_stacks **stack_a, t_stacks **stack_b, t_chunks *chunks)
 	else if (get_list_size(*stack_a) > 3)
 	{
 		chunk_sort(stack_a, stack_b, chunks);
+		push_to_a(stack_a, stack_b, chunks);
 	}
 }
 
@@ -58,6 +59,51 @@ int get_element_pos(t_chunks *chunks, int data)
 		i++;
 	}
 	return 0;
+}
+
+int	find_bigger(t_stacks **stack_b, t_chunks *chunks)
+{
+	t_stacks	*ptr;
+	int			i;
+
+	ptr = *stack_b;
+	i = 0;
+	while (ptr->next)
+	{
+		if (ptr->data > chunks->bigger)
+		{
+			chunks->bigger = ptr->data;
+		}
+		ptr = ptr->next;
+		i++;
+	}
+	if (!i)
+		return (-1);
+	return (i);
+}
+
+void	push_to_a(t_stacks **stack_a, t_stacks **stack_b, t_chunks *chunks)
+{
+	t_stacks	*ptr;
+
+	ptr = *stack_b;
+	while (ptr->next)
+	{
+		find_bigger(stack_b, chunks);
+		if (ptr->data == chunks->bigger)
+			ft_pa(stack_a, stack_b);
+		else
+		{
+			// ft_printf("\n%d\n", chunks->bigger);
+			// ft_printf("%d\n", find_bigger(stack_b, chunks));
+			print_stack_list(*stack_b);
+			ft_rrb(stack_b, false);
+			print_stack_list(*stack_b);
+			ft_pa(stack_a, stack_b);
+			ft_printf("\n\n");
+			print_stack_list(*stack_a);
+		}
+	}
 }
 
 void chunk_sort(t_stacks **sa, t_stacks **sb, t_chunks *chunks)

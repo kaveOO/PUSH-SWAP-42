@@ -6,7 +6,7 @@
 /*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 09:39:47 by kaveo             #+#    #+#             */
-/*   Updated: 2024/12/28 22:58:44 by kaveo            ###   ########.fr       */
+/*   Updated: 2024/12/28 23:48:05 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,6 @@ t_chunks	*init_chunks_stack(t_stacks **stack_a)
 	chunks->offset = chunks->size / chunks->chunks_count;
 	chunks->start = chunks->middle - chunks->offset;
 	chunks->end = chunks->middle + chunks->offset;
+	chunks->bigger = 0;
 	return (chunks);
 }

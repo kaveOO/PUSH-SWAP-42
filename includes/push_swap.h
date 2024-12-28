@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 10:48:02 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/28 18:25:35 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/28 23:47:18 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct s_chunks
 	int 				start;
 	int 				end;
 	int					size;
+	int					bigger;
 }						t_chunks;
 
 typedef struct s_stacks
@@ -71,6 +72,9 @@ int		get_array_size(int *array);
 int		get_element_pos(t_chunks *chunks, int data);
 void	update_chunks_pos(t_chunks *chunks, t_stacks **stack_a);
 bool	elements_in_chunks(t_chunks *chunks, t_stacks **stack_a);
+void	push_to_a(t_stacks **stack_a, t_stacks **stack_b, t_chunks *chunks);
+int		find_bigger(t_stacks **stack_b, t_chunks *chunks);
+
 
 
 // ? SORTING FUNCTIONS
