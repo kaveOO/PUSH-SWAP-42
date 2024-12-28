@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 09:39:47 by kaveo             #+#    #+#             */
-/*   Updated: 2024/12/27 23:24:48 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/28 06:03:59 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,15 @@ t_stacks	*init_a_stack(int ac, char **av)
 	return (stack_a);
 }
 
-t_stacks	*init_b_stack(t_stacks *stack_a)
-{
-	t_stacks	*stack_b;
+// t_chunks	*init_chunks_stack(t_stacks **stack_a)
+// {
+// 	t_chunks	*chunks;
 
-	stack_b = malloc(sizeof(t_stacks));
-	stack_b->data = 0;
-	stack_b->next = NULL;
-	ft_pb(&stack_b, &stack_a);
-	ft_pb(&stack_b, &stack_a);
-	return (stack_b);
-}
+// 	chunks = malloc(sizeof(t_chunks));
+// 	if (!chunks)
+// 		return NULL;
+// 	chunks->array =
+
+
+
+// }

@@ -6,39 +6,25 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 17:21:36 by kaveo             #+#    #+#             */
-/*   Updated: 2024/12/28 02:26:56 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/28 06:03:47 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// TODO Have to work on B stack init when having more than 3 digits because we have to use it
-
-void	sort_list(t_stacks *stack_a)
+void	sort_list(t_stacks *stack_a, t_stacks *stack_b)
 {
-	t_stacks	*stack_b;
-
 	(void) stack_b;
 	if (get_list_size(stack_a) == 2)
-	{
-		ft_sa(stack_a, false);
-		exit_handler(stack_a, NULL, 0);
-	}
+		ft_sa(stack_a, false), exit_handler(stack_a, stack_b, 0);
 	else if (get_list_size(stack_a) == 3)
-		sort_3_digits(&stack_a);
-	stack_b = init_b_stack(stack_a);
-	// ft_pa(&stack_a, &stack_b);
-	// ft_pa(&stack_a, &stack_b);
-	// ft_pb(&stack_b, &stack_a);
-	// else if (get_list_size(stack_a) > 3)
-	// {
-	// 	stack_b = init_b_stack(stack_a);
-	// }m
-	// ft_pa(&stack_a, &stack_b);
-	print_stack_list(stack_a);
-	ft_printf("\n");
-	print_stack_list(stack_b);
-	// free_stack_list(stack_b);
+		sort_3_digits(&stack_a), exit_handler(stack_a, stack_b, 0);
+	else if (get_list_size(stack_a) > 3)
+	{
+		fill_sort_array(&stack_a);
+		// pre_sort_stack(&stack_a);
+		// print_stack_list(stack_a);
+	}
 }
 
 void	sort_3_digits(t_stacks **stack_a)

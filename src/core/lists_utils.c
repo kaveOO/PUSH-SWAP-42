@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lists_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 07:57:38 by kaveo             #+#    #+#             */
-/*   Updated: 2024/12/24 17:25:50 by kaveo            ###   ########.fr       */
+/*   Updated: 2024/12/28 04:32:17 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,6 @@ void	free_stack_list(t_stacks *list)
 {
 	t_stacks	*temp;
 
-	// if (!list->data)
-	// 	return (free(list));
 	while (list != NULL)
 	{
 		temp = list;

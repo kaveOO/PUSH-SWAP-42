@@ -6,13 +6,11 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 22:57:06 by kaveo             #+#    #+#             */
-/*   Updated: 2024/12/28 01:36:38 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/28 03:30:37 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-// TODO Bytes block lost when using rra function, maybe having the same error with rrb
 
 void	ft_rra(t_stacks **stack_a, bool both)
 {

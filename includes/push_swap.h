@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 10:48:02 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/28 02:25:31 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/28 06:20:52 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,16 @@
 # include <stdbool.h>
 # include <libft.h>
 # include <limits.h>
+
+typedef struct s_chunks
+{
+	int					*array;
+	int					chunks_count;
+	int					middle;
+	int 				offset;
+	int 				start;
+	int 				end;
+}						t_chunks;
 
 typedef struct s_stacks
 {
@@ -54,9 +64,14 @@ void	exit_handler(t_stacks *stack_a, t_stacks *stack_b, int i);
 
 // ? SORTING FUNCTIONS
 
-void	sort_list(t_stacks *stack_a);
+void	sort_list(t_stacks *stack_a, t_stacks *stack_b);
 void	sort_3_digits(t_stacks **stack_a);
-void	sort_4_digits(t_stacks **stack_a);
+void	pre_sort_stack(t_stacks **stack_a);
+void	fill_sort_array(t_stacks **stack_a);
+void	print_array(int *array);
+void	bubble_sort_array(int *array);
+
+
 
 // ? INSTRUCTIONS
 
