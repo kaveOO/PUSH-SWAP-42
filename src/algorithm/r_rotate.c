@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   r_rotate.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 22:57:06 by kaveo             #+#    #+#             */
-/*   Updated: 2024/12/25 00:39:08 by kaveo            ###   ########.fr       */
+/*   Updated: 2024/12/28 01:36:38 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_rra(t_stacks **stack_a, bool both)
 
 	last = (*stack_a);
 	prev_last = NULL;
-	while (last->next != NULL)
+	while (last->next)
 	{
 		prev_last = last;
 		last = last->next;
@@ -41,7 +41,7 @@ void	ft_rrb(t_stacks **stack_b, bool both)
 	last = (*stack_b);
 	prev_last = NULL;
 
-	while (last->next != NULL)
+	while (last->next)
 	{
 		prev_last = last;
 		last = last->next;

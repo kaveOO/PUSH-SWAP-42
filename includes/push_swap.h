@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 10:48:02 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/25 01:43:21 by kaveo            ###   ########.fr       */
+/*   Updated: 2024/12/28 02:25:31 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 typedef struct s_stacks
 {
 	int					data;
-	int					temp;
 	struct s_stacks		*next;
 }						t_stacks;
 
@@ -61,8 +60,8 @@ void	sort_4_digits(t_stacks **stack_a);
 
 // ? INSTRUCTIONS
 
-void	ft_sa(t_stacks *stack_a);
-void	ft_sb(t_stacks *stack_b);
+void	ft_sa(t_stacks *stack_a, bool both);
+void	ft_sb(t_stacks *stack_b, bool both);
 void	ft_ss(t_stacks *stack_a, t_stacks *stack_b);
 void	ft_pa(t_stacks **stack_a, t_stacks **stack_b);
 void	ft_pb(t_stacks **stack_b, t_stacks **stack_a);

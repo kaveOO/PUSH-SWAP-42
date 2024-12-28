@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 01:06:19 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/28 01:11:05 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/28 02:26:17 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,16 @@ int	main(int argc, char **argv)
 	// stack_b = stack_lst_new(124);
 	// is_valid_args(stack_a, argc, argv);
 	// // sort_list(stack_a);
-	ft_ra(&stack_a, false);
 	// ft_ra(&stack_a, false);
+	ft_sa(stack_a, false);
+	ft_sb(stack_b, false);
+	ft_rra(&stack_a, false);
+	ft_rrb(&stack_b, false);
+	ft_ra(&stack_a, false);
+	ft_rb(&stack_b, false);
 	print_stack_list(stack_a);
+	ft_printf("\n");
+	print_stack_list(stack_b);
 	free_stack_list(stack_b);
 	free_stack_list(stack_a);
 	// ft_ra(&stack_a, false);

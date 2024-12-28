@@ -4,7 +4,8 @@
 		"*.embeddedhtml": "html",
 		"push_swap.h": "c",
 		"array": "c",
-		"__tuple": "c"
+		"__tuple": "c",
+		"chrono": "c"
 	},
 	"C_Cpp.errorSquiggles": "disabled"
 }
