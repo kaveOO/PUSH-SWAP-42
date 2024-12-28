@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 14:48:53 by kaveo             #+#    #+#             */
-/*   Updated: 2024/12/27 00:16:52 by kaveo            ###   ########.fr       */
+/*   Updated: 2024/12/28 01:19:03 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,28 @@
 
 void	ft_ra(t_stacks **stack_a, bool both)
 {
-	t_stacks	*ptr;
+	t_stacks	*temp;
 
-	ptr = (*stack_a);
-	if (!ptr)
+	if (get_list_size((*stack_a)) < 2)
 		return ;
-	int temp = ptr->data;
-	while (ptr->next)
-	{
-		ptr = ptr->next;
-	}
-	ptr->next = malloc(sizeof(t_stacks));
-	ptr->next->data = temp;
-	(*stack_a) = (*stack_a)->next;
+	stack_add_back(stack_a, stack_lst_new((*stack_a)->data));
+	temp = (*stack_a);
+	(*stack_a) = temp->next;
+	free(temp);
 	if (!both)
 		ft_printf("ra\n");
 }
 
 void	ft_rb(t_stacks **stack_b, bool both)
 {
-	t_stacks	*ptr;
+	t_stacks	*temp;
 
-	ptr = (*stack_b);
-	if (!ptr)
+	if (get_list_size((*stack_b)) < 2)
 		return ;
-	stack_add_back(&ptr, stack_lst_new(ptr->data));
-	(*stack_b) = (*stack_b)->next;
+	stack_add_back(stack_b, stack_lst_new((*stack_b)->data));
+	temp = (*stack_b);
+	(*stack_b) = temp->next;
+	free(temp);
 	if (!both)
 		ft_printf("rb\n");
 }
@@ -50,3 +46,4 @@ void	ft_rr(t_stacks **stack_a, t_stacks **stack_b)
 	ft_rb(stack_b, true);
 	ft_printf("rr\n");
 }
+

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 17:21:36 by kaveo             #+#    #+#             */
-/*   Updated: 2024/12/25 18:54:29 by kaveo            ###   ########.fr       */
+/*   Updated: 2024/12/27 19:17:02 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,16 @@ void	sort_list(t_stacks *stack_a)
 
 	(void) stack_b;
 	if (get_list_size(stack_a) == 2)
+	{
 		ft_sa(stack_a);
+		exit_handler(stack_a, NULL, 0);
+	}
 	else if (get_list_size(stack_a) == 3)
 		sort_3_digits(&stack_a);
 	stack_b = init_b_stack(stack_a);
-	ft_pa(&stack_a, &stack_b);
-	ft_pa(&stack_a, &stack_b);
-	ft_pb(&stack_b, &stack_a);
+	// ft_pa(&stack_a, &stack_b);
+	// ft_pa(&stack_a, &stack_b);
+	// ft_pb(&stack_b, &stack_a);
 	// else if (get_list_size(stack_a) > 3)
 	// {
 	// 	stack_b = init_b_stack(stack_a);

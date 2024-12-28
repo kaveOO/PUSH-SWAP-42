@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   inits.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 09:39:47 by kaveo             #+#    #+#             */
-/*   Updated: 2024/12/25 10:18:26 by kaveo            ###   ########.fr       */
+/*   Updated: 2024/12/27 23:24:48 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@ t_stacks	*init_a_stack(int ac, char **av)
 	while (i < ac)
 	{
 		if (i == 1)
+		{
 			stack_a = stack_lst_new(ft_atoi(av[i]));
+		}
 		else
 			stack_add_back(&stack_a, stack_lst_new(ft_atoi(av[i])));
 		i++;
