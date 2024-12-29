@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 01:06:19 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/28 11:47:49 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/29 17:00:32 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int	main(int argc, char **argv)
 	t_stacks	*stack_a;
 	t_stacks	*stack_b;
 	t_chunks	*chunks;
+	t_mimax		*mimax;
 
 	if (argc <= 2)
 		exit(1);
@@ -27,6 +28,8 @@ int	main(int argc, char **argv)
 		exit_handler(stack_a, stack_b, chunks, 1);
 	if (!check_for_doubles(stack_a))
 		exit_handler(stack_a, stack_b, chunks, 0);
-	sort_list(&stack_a, &stack_b, chunks);
+	mimax = init_mimax();
+	sort_list(&stack_a, &stack_b, chunks, mimax);
+	free(mimax);
 	exit_handler(stack_a, stack_b, chunks, 0);
 }

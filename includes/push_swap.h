@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 10:48:02 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/28 23:47:18 by kaveo            ###   ########.fr       */
+/*   Updated: 2024/12/29 22:28:14 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,15 @@ typedef struct s_chunks
 	int 				start;
 	int 				end;
 	int					size;
-	int					bigger;
 }						t_chunks;
+
+typedef struct s_mimax
+{
+	int					min;
+	int					index;
+	int					max;
+}						t_mimax;
+
 
 typedef struct s_stacks
 {
@@ -41,6 +48,7 @@ typedef struct s_stacks
 
 t_stacks	*init_stack_a(int ac, char **av);
 t_chunks	*init_chunks_stack(t_stacks **stack_a);
+t_mimax		*init_mimax();
 
 // ? PARSING FUNCTIONS
 
@@ -72,14 +80,14 @@ int		get_array_size(int *array);
 int		get_element_pos(t_chunks *chunks, int data);
 void	update_chunks_pos(t_chunks *chunks, t_stacks **stack_a);
 bool	elements_in_chunks(t_chunks *chunks, t_stacks **stack_a);
-void	push_to_a(t_stacks **stack_a, t_stacks **stack_b, t_chunks *chunks);
-int		find_bigger(t_stacks **stack_b, t_chunks *chunks);
+void	push_to_a(t_stacks **sa, t_stacks **sb, t_chunks *chks, t_mimax *mimax);
+int		find_bigger(t_stacks **stack_b, t_mimax **mimax);
 
 
 
 // ? SORTING FUNCTIONS
 
-void	sort_list(t_stacks **stack_a, t_stacks **stack_b, t_chunks *chunks);
+void	sort_list(t_stacks **sa, t_stacks **sb, t_chunks *chks, t_mimax *mimax);
 void	sort_3_digits(t_stacks **stack_a);
 void	chunk_sort(t_stacks **sa, t_stacks **sb, t_chunks *chunks);
 int		*fill_sort_array(t_stacks **stack_a);

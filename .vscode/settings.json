@@ -5,7 +5,8 @@
 		"push_swap.h": "c",
 		"array": "c",
 		"__tuple": "c",
-		"chrono": "c"
+		"chrono": "c",
+		"span": "c"
 	},
 	"C_Cpp.errorSquiggles": "disabled"
 }

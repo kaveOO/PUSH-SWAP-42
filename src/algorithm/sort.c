@@ -3,26 +3,51 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 17:21:36 by kaveo             #+#    #+#             */
-/*   Updated: 2024/12/29 00:34:47 by kaveo            ###   ########.fr       */
+/*   Updated: 2024/12/29 22:28:03 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void sort_list(t_stacks **stack_a, t_stacks **stack_b, t_chunks *chunks)
+void sort_list(t_stacks **sa, t_stacks **sb, t_chunks *chks, t_mimax *mimax)
 {
-	(void)stack_b;
-	if (get_list_size(*stack_a) == 2)
-		ft_sa(*stack_a, false);
-	else if (get_list_size(*stack_a) == 3)
-		sort_3_digits(stack_a);
-	else if (get_list_size(*stack_a) > 3)
+	(void)sb;
+	if (get_list_size(*sa) == 2)
+		ft_sa(*sa, false);
+	else if (get_list_size(*sa) == 3)
+		sort_3_digits(sa);
+	else if (get_list_size(*sa) > 3)
 	{
-		chunk_sort(stack_a, stack_b, chunks);
-		push_to_a(stack_a, stack_b, chunks);
+		chunk_sort(sa, sb, chks);
+		// ft_printf("\nlist size %d\n", get_list_size(*sb) / 2);
+		// ft_printf("bigger index %d\n", find_bigger(sb, mimax));
+		push_to_a(sa, sb, chks, mimax);
+		// (void) mimax;
+		// find_bigger(sb, &mimax);
+		// while ((*sb)->data != mimax->max)
+		// {
+		// 	ft_rb(sb, false);
+		// }
+		// ft_pa(sa, sb);
+		// print_stack_list(*sb);
+		// ft_pa(sa,sb);
+		// print_stack_list(*sb);
+		// ft_rb(sb, false);
+		// ft_pa(sa, sb);
+		// ft_printf("\n");
+		// print_stack_list(*sb);
+		// find_bigger(sb, &mimax);
+		// ft_printf("\n%d\n", mimax->max);
+		// while ((*sb)->data != mimax->max)
+		// {
+		// 	ft_rb(sb, false);
+		// }
+		// print_stack_list(*sb);
+		// ft_pa(sa, sb);
+		// ft_ra(sa, false);
 	}
 }
 
@@ -61,18 +86,23 @@ int get_element_pos(t_chunks *chunks, int data)
 	return 0;
 }
 
-int	find_bigger(t_stacks **stack_b, t_chunks *chunks)
+int	find_bigger(t_stacks **stack_b, t_mimax **mimax)
 {
-	t_stacks	*ptr;
-	int			i;
+	t_stacks *ptr;
+	int i;
 
-	ptr = *stack_b;
+	ptr = (*stack_b);
+	if (!ptr)
+		return (0);
 	i = 0;
+	if (!ptr->next)
+		return (1);
+	(*mimax)->max = 0;
 	while (ptr->next)
 	{
-		if (ptr->data > chunks->bigger)
+		if (ptr->data > (*mimax)->max)
 		{
-			chunks->bigger = ptr->data;
+			(*mimax)->max = ptr->data;
 		}
 		ptr = ptr->next;
 		i++;
@@ -82,28 +112,46 @@ int	find_bigger(t_stacks **stack_b, t_chunks *chunks)
 	return (i);
 }
 
-void	push_to_a(t_stacks **stack_a, t_stacks **stack_b, t_chunks *chunks)
+void push_to_a(t_stacks **sa, t_stacks **sb, t_chunks *chks, t_mimax *mimax)
 {
-	t_stacks	*ptr;
 
-	ptr = *stack_b;
-	while (ptr->next)
+	(void)sa;
+	(void)chks;
+	int down = 0;
+	while (*sb)
 	{
-		find_bigger(stack_b, chunks);
-		if (ptr->data == chunks->bigger)
-			ft_pa(stack_a, stack_b);
-		else
+		find_bigger(sb, &mimax);
+		if (get_list_size(*sb) == 1)
 		{
-			// ft_printf("\n%d\n", chunks->bigger);
-			// ft_printf("%d\n", find_bigger(stack_b, chunks));
-			print_stack_list(*stack_b);
-			ft_rrb(stack_b, false);
-			print_stack_list(*stack_b);
-			ft_pa(stack_a, stack_b);
-			ft_printf("\n\n");
-			print_stack_list(*stack_a);
+			ft_pa(sa, sb);
+		}
+		else if (mimax->max == (*sb)->data)
+		{
+			ft_pa(sa, sb);
+		}
+		else if (down == 0 || (*sb)->data > mimax->min)
+		{
+			ft_pa(sa, sb);
+			down++;
+		}
+		else if (find_bigger(sb, &mimax) >= get_list_size(*sb) / 2)
+		{
+			while ((*sb)->data != mimax->max)
+			{
+				ft_rb(sb, false);
+			}
+			ft_pa(sa, sb);
+		}
+		else if (find_bigger(sb, &mimax) < get_list_size(*sb) / 2)
+		{
+			while ((*sb)->data != mimax->max)
+			{
+				ft_rrb(sb, false);
+			}
+			ft_pa(sa, sb);
 		}
 	}
+	print_stack_list(*sa);
 }
 
 void chunk_sort(t_stacks **sa, t_stacks **sb, t_chunks *chunks)
@@ -132,7 +180,7 @@ bool elements_in_chunks(t_chunks *chunks, t_stacks **stack_a)
 {
 	int i = 0;
 	int j;
-	t_stacks	*ptr = (*stack_a);
+	t_stacks *ptr = (*stack_a);
 	if (!ptr)
 		return NULL;
 	while (i < chunks->size && ptr->next)

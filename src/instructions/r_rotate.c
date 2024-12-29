@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 22:57:06 by kaveo             #+#    #+#             */
-/*   Updated: 2024/12/28 03:30:37 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/29 21:58:03 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ void	ft_rrb(t_stacks **stack_b, bool both)
 
 	last = (*stack_b);
 	prev_last = NULL;
-
+	if (!last->next)
+		return ;
 	while (last->next)
 	{
 		prev_last = last;

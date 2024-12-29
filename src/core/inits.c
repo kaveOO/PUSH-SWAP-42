@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   inits.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 09:39:47 by kaveo             #+#    #+#             */
-/*   Updated: 2024/12/28 23:48:05 by kaveo            ###   ########.fr       */
+/*   Updated: 2024/12/29 22:25:28 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,19 @@ t_stacks	*init_stack_a(int ac, char **av)
 	return (stack_a);
 }
 
+t_mimax	*init_mimax()
+{
+	t_mimax	*mimax;
+
+	mimax = malloc(sizeof(mimax));
+	if (!mimax)
+		return (NULL);
+	mimax->max = -2147483648;
+	mimax->min = 2147483647;
+	mimax->index = 0;
+	return (mimax);
+}
+
 t_chunks	*init_chunks_stack(t_stacks **stack_a)
 {
 	t_chunks	*chunks;
@@ -45,6 +58,5 @@ t_chunks	*init_chunks_stack(t_stacks **stack_a)
 	chunks->offset = chunks->size / chunks->chunks_count;
 	chunks->start = chunks->middle - chunks->offset;
 	chunks->end = chunks->middle + chunks->offset;
-	chunks->bigger = 0;
 	return (chunks);
 }
