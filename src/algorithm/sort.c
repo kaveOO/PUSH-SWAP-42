@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 17:21:36 by kaveo             #+#    #+#             */
-/*   Updated: 2024/12/30 08:08:20 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/30 10:18:25 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,42 +22,7 @@ void sort_list(t_stacks **sa, t_stacks **sb, t_chunks *chks, t_mimax *mimax)
 	else if (get_list_size(*sa) > 3)
 	{
 		chunk_sort(sa, sb, chks);
-		// ft_printf("\nlist size %d\n", get_list_size(*sb) / 2);
-		// ft_printf("bigger index %d\n", find_bigger(sb, mimax));
-		// (void) mimax;
-		// print_stack_list(*sb);
-		// find_bigger(sb, &mimax);
-		// ft_printf("\n%d\n", mimax->max);
-
-		// ft_printf("\n index is here %d\n",  get_index(sb, mimax));
 		push_to_a(sa, sb, chks, mimax);
-		// (void) mimax;
-		// find_bigger(sb, &mimax);
-		// ft_pa(sa, sb);
-		// print_stack_list(*sb);
-		// // find_bigger(sb, &mimax);
-		// mimax->max = 2;
-		// ft_printf("\n%d\n", get_index(sb, mimax));
-		// while ((*sb)->data != mimax->max)
-		// {
-		// 	ft_rb(sb, false);
-		// }
-		// ft_pa(sa, sb);
-		// print_stack_list(*sb);
-		// ft_pa(sa,sb);
-		// ft_rb(sb, false);
-		// ft_pa(sa, sb);
-		// ft_printf("\n");
-		// print_stack_list(*sb);
-		// find_bigger(sb, &mimax);
-		// ft_printf("\n%d\n", mimax->max);
-		// while ((*sb)->data != mimax->max)
-		// {
-		// 	ft_rb(sb, false);
-		// }
-		// print_stack_list(*sb);
-		// ft_pa(sa, sb);
-		// ft_ra(sa, false);
 	}
 }
 
@@ -106,7 +71,7 @@ int	find_bigger(t_stacks **stack_b, t_mimax **mimax)
 		return (0);
 	i = 0;
 	if (!ptr->next)
-		return (1);
+		return (ptr->data);
 	(*mimax)->max = 0;
 	while (ptr)
 	{
@@ -160,15 +125,12 @@ void push_to_a(t_stacks **sa, t_stacks **sb, t_chunks *chks, t_mimax *mimax)
 	(void)sa;
 	(void)chks;
 	int down = 0;
-
 	while (*sb)
 	{
 		find_bigger(sb, &mimax);
 		find_lower(sa, mimax);
 		if (mimax->max == (*sb)->data)
 		{
-			// ft_printf("%d\n", mimax->max);
-			// ft_printf("%d\n", mimax->min);
 			if (mimax->min > mimax->max)
 			{
 				ft_rra(sa, false);
@@ -187,23 +149,29 @@ void push_to_a(t_stacks **sa, t_stacks **sb, t_chunks *chks, t_mimax *mimax)
 		}
 		if (get_list_size(*sb) == 1)
 		{
-			// down--;
-			ft_pa(sa, sb);
-			ft_rra(sa, false);
+			while (down != 0)
+			{
+				if ((find_bigger(sb, &mimax)) > find_lower(sa, mimax))
+				{
+					ft_pa(sa, sb);
+					ft_rra(sa, false);
+					down--;
+				}
+				else if ((find_bigger(sb, &mimax)) < find_lower(sa, mimax))
+				{
+					ft_rra(sa, false);
+					down--;
+				}
+			}
 		}
 		else if (get_index(sb, mimax) >= get_list_size(*sb) / 2)
 		{
-			// ft_printf("index is bigger than middle size %d\n", get_index(sa, mimax));
-			// ft_printf("%d\n", get_list_size(*sb) / 2);
 			ft_rrb(sb, false);
 		}
 		else if (get_index(sb, mimax) < get_list_size(*sb) / 2)
 		{
-			// ft_printf("index in smaller than middle size %d\n", get_index(sa, mimax));
-			// ft_printf("%d\n", get_list_size(*sb) / 2);
 			ft_rb(sb, false);
 		}
-		// ft_printf("%d\n", down);
 	}
 }
 
