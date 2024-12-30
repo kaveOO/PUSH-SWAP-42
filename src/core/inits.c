@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 09:39:47 by kaveo             #+#    #+#             */
-/*   Updated: 2024/12/29 22:25:28 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/30 01:33:59 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,7 @@ t_mimax	*init_mimax()
 	if (!mimax)
 		return (NULL);
 	mimax->max = -2147483648;
-	mimax->min = 2147483647;
-	mimax->index = 0;
+	mimax->min = 0;
 	return (mimax);
 }
 

@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 17:21:36 by kaveo             #+#    #+#             */
-/*   Updated: 2024/12/29 22:28:03 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/30 08:08:20 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,20 @@ void sort_list(t_stacks **sa, t_stacks **sb, t_chunks *chks, t_mimax *mimax)
 		chunk_sort(sa, sb, chks);
 		// ft_printf("\nlist size %d\n", get_list_size(*sb) / 2);
 		// ft_printf("bigger index %d\n", find_bigger(sb, mimax));
+		// (void) mimax;
+		// print_stack_list(*sb);
+		// find_bigger(sb, &mimax);
+		// ft_printf("\n%d\n", mimax->max);
+
+		// ft_printf("\n index is here %d\n",  get_index(sb, mimax));
 		push_to_a(sa, sb, chks, mimax);
 		// (void) mimax;
 		// find_bigger(sb, &mimax);
+		// ft_pa(sa, sb);
+		// print_stack_list(*sb);
+		// // find_bigger(sb, &mimax);
+		// mimax->max = 2;
+		// ft_printf("\n%d\n", get_index(sb, mimax));
 		// while ((*sb)->data != mimax->max)
 		// {
 		// 	ft_rb(sb, false);
@@ -34,7 +45,6 @@ void sort_list(t_stacks **sa, t_stacks **sb, t_chunks *chks, t_mimax *mimax)
 		// ft_pa(sa, sb);
 		// print_stack_list(*sb);
 		// ft_pa(sa,sb);
-		// print_stack_list(*sb);
 		// ft_rb(sb, false);
 		// ft_pa(sa, sb);
 		// ft_printf("\n");
@@ -98,7 +108,7 @@ int	find_bigger(t_stacks **stack_b, t_mimax **mimax)
 	if (!ptr->next)
 		return (1);
 	(*mimax)->max = 0;
-	while (ptr->next)
+	while (ptr)
 	{
 		if (ptr->data > (*mimax)->max)
 		{
@@ -111,6 +121,38 @@ int	find_bigger(t_stacks **stack_b, t_mimax **mimax)
 		return (-1);
 	return (i);
 }
+int	find_lower(t_stacks **stack_a, t_mimax *mimax)
+{
+	t_stacks	*ptr;
+
+	ptr = (*stack_a);
+	mimax->min = 0;
+	if (!ptr)
+		return 0;
+	while (ptr->next)
+	{
+		ptr = ptr->next;
+	}
+	mimax->min = ptr->data;
+	return (ptr->data);
+}
+
+int	get_index(t_stacks **stack_b, t_mimax *mimax)
+{
+	int			i;
+	t_stacks	*ptr;
+
+	ptr = (*stack_b);
+	i = 1;
+	while (i < get_list_size(*stack_b))
+	{
+		if (ptr->data == mimax->max)
+			return (i);
+		ptr = ptr->next;
+		i++;
+	}
+	return (i);
+}
 
 void push_to_a(t_stacks **sa, t_stacks **sb, t_chunks *chks, t_mimax *mimax)
 {
@@ -118,40 +160,51 @@ void push_to_a(t_stacks **sa, t_stacks **sb, t_chunks *chks, t_mimax *mimax)
 	(void)sa;
 	(void)chks;
 	int down = 0;
+
 	while (*sb)
 	{
 		find_bigger(sb, &mimax);
-		if (get_list_size(*sb) == 1)
+		find_lower(sa, mimax);
+		if (mimax->max == (*sb)->data)
 		{
-			ft_pa(sa, sb);
-		}
-		else if (mimax->max == (*sb)->data)
-		{
-			ft_pa(sa, sb);
+			// ft_printf("%d\n", mimax->max);
+			// ft_printf("%d\n", mimax->min);
+			if (mimax->min > mimax->max)
+			{
+				ft_rra(sa, false);
+				down--;
+			}
+			else
+				ft_pa(sa, sb);
 		}
 		else if (down == 0 || (*sb)->data > mimax->min)
 		{
+			// ft_printf("i'm here 1\n");
 			ft_pa(sa, sb);
+			ft_ra(sa, false);
+			// ft_printf("test\n");
 			down++;
 		}
-		else if (find_bigger(sb, &mimax) >= get_list_size(*sb) / 2)
+		if (get_list_size(*sb) == 1)
 		{
-			while ((*sb)->data != mimax->max)
-			{
-				ft_rb(sb, false);
-			}
+			// down--;
 			ft_pa(sa, sb);
+			ft_rra(sa, false);
 		}
-		else if (find_bigger(sb, &mimax) < get_list_size(*sb) / 2)
+		else if (get_index(sb, mimax) >= get_list_size(*sb) / 2)
 		{
-			while ((*sb)->data != mimax->max)
-			{
-				ft_rrb(sb, false);
-			}
-			ft_pa(sa, sb);
+			// ft_printf("index is bigger than middle size %d\n", get_index(sa, mimax));
+			// ft_printf("%d\n", get_list_size(*sb) / 2);
+			ft_rrb(sb, false);
 		}
+		else if (get_index(sb, mimax) < get_list_size(*sb) / 2)
+		{
+			// ft_printf("index in smaller than middle size %d\n", get_index(sa, mimax));
+			// ft_printf("%d\n", get_list_size(*sb) / 2);
+			ft_rb(sb, false);
+		}
+		// ft_printf("%d\n", down);
 	}
-	print_stack_list(*sa);
 }
 
 void chunk_sort(t_stacks **sa, t_stacks **sb, t_chunks *chunks)

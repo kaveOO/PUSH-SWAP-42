@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 10:48:02 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/29 22:28:14 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/30 07:09:59 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ typedef struct s_chunks
 typedef struct s_mimax
 {
 	int					min;
-	int					index;
 	int					max;
 }						t_mimax;
 
@@ -82,6 +81,8 @@ void	update_chunks_pos(t_chunks *chunks, t_stacks **stack_a);
 bool	elements_in_chunks(t_chunks *chunks, t_stacks **stack_a);
 void	push_to_a(t_stacks **sa, t_stacks **sb, t_chunks *chks, t_mimax *mimax);
 int		find_bigger(t_stacks **stack_b, t_mimax **mimax);
+int		get_index(t_stacks **stack_a, t_mimax *mimax);
+int		find_lower(t_stacks **stack_a, t_mimax *mimax);
 
 
 

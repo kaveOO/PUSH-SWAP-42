@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 07:57:38 by kaveo             #+#    #+#             */
-/*   Updated: 2024/12/29 20:15:46 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/30 07:01:40 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int	get_list_size(t_stacks *stack)
 
 	i = 0;
 	if (!stack)
-		return (1);
+		return (-1);
 	while (stack)
 	{
 		stack = stack->next;
