@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 00:12:44 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/28 09:12:17 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/30 12:50:22 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,11 @@ bool	check_chars(int ac, char **av)
 	}
 	return (true);
 }
+
 bool	check_len(int ac, char **av)
 {
-	int i;
-	size_t j;
+	int		i;
+	size_t	j;
 
 	i = 1;
 	while (i < ac)
@@ -74,8 +75,8 @@ bool	check_limits(int ac, char **av)
 
 bool	check_for_doubles(t_stacks *list)
 {
-	t_stacks *current;
-	t_stacks *temp;
+	t_stacks	*current;
+	t_stacks	*temp;
 
 	current = list;
 	while (current)
@@ -105,4 +106,3 @@ bool	check_if_sorted(t_stacks *stack_a)
 	}
 	return (true);
 }
-

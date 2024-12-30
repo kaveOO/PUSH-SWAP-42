@@ -6,7 +6,11 @@
 		"array": "c",
 		"__tuple": "c",
 		"chrono": "c",
-		"span": "c"
+		"span": "c",
+		"bitset": "c",
+		"algorithm": "c",
+		"__bit_reference": "c",
+		"unordered_map": "c"
 	},
 	"C_Cpp.errorSquiggles": "disabled"
 }

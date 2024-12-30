@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 10:19:10 by kaveo             #+#    #+#             */
-/*   Updated: 2024/12/30 09:43:15 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/30 12:52:05 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	ft_pa(t_stacks **stack_a, t_stacks **stack_b)
 	free(temp);
 	ft_printf("pa\n");
 }
+
 void	ft_pb(t_stacks **stack_b, t_stacks **stack_a)
 {
 	t_stacks	*temp;

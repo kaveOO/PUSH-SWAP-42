@@ -6,7 +6,7 @@
 #    By: albillie <albillie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/11 00:18:47 by albillie          #+#    #+#              #
-#    Updated: 2024/12/28 08:02:34 by albillie         ###   ########.fr        #
+#    Updated: 2024/12/30 12:58:16 by albillie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,12 +28,14 @@ SRC		=	src/instructions/push.c \
 			src/core/inits.c \
 			src/core/main.c \
 			src/algorithm/sort.c \
+			src/algorithm/chunks_sort.c \
 			src/parsing/is_valid_args.c \
 			src/utils/chunk_array.c		\
 			src/utils/handling.c		\
 			src/utils/lists.c		\
 			src/utils/parsing.c		\
 			src/utils/chunks.c		\
+			src/utils/sort.c		\
 
 
 OBJ 		= $(SRC:.c=.o)

@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 09:39:47 by kaveo             #+#    #+#             */
-/*   Updated: 2024/12/30 01:33:59 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/30 13:06:02 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 t_stacks	*init_stack_a(int ac, char **av)
 {
 	t_stacks	*stack_a;
-	int	i;
+	int			i;
 
 	i = 1;
 	while (i < ac)
@@ -31,7 +31,7 @@ t_stacks	*init_stack_a(int ac, char **av)
 	return (stack_a);
 }
 
-t_mimax	*init_mimax()
+t_mimax	*init_mimax(void)
 {
 	t_mimax	*mimax;
 
@@ -49,7 +49,7 @@ t_chunks	*init_chunks_stack(t_stacks **stack_a)
 
 	chunks = malloc(sizeof(t_chunks));
 	if (!chunks)
-		return NULL;
+		return (NULL);
 	chunks->size = get_list_size(*stack_a);
 	chunks->array = fill_sort_array(stack_a);
 	chunks->chunks_count = get_chunks_count(get_list_size(*stack_a));

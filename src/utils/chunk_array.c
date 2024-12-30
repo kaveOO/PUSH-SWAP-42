@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 03:32:27 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/28 17:15:07 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/30 12:51:48 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	*fill_sort_array(t_stacks **stack_a)
 
 	array = malloc(sizeof(int *) * (get_list_size(*stack_a) + 1));
 	if (!array)
-		return NULL;
+		return (NULL);
 	ptr = (*stack_a);
 	i = 0;
 	while (ptr)
@@ -35,7 +35,9 @@ int	*fill_sort_array(t_stacks **stack_a)
 
 void	print_array(int *array)
 {
-	int i = 0;
+	int	i;
+
+	i = 0;
 	while (array[i])
 	{
 		ft_printf("%d ", array[i]);
@@ -60,7 +62,7 @@ int	get_array_size(int *array)
 int	*bubble_sort_array(int *array)
 {
 	int	i;
-	int j;
+	int	j;
 
 	i = 0;
 	while (i < get_array_size(array))

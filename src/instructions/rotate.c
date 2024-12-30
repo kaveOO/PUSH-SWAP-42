@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 14:48:53 by kaveo             #+#    #+#             */
-/*   Updated: 2024/12/28 13:09:45 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/30 12:52:13 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,3 @@ void	ft_rr(t_stacks **stack_a, t_stacks **stack_b)
 	ft_rb(stack_b, true);
 	ft_printf("rr\n");
 }
-

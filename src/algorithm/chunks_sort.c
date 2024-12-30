@@ -1,27 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_valid_args.c                                    :+:      :+:    :+:   */
+/*   chunks_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/11 00:09:24 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/30 12:49:29 by albillie         ###   ########.fr       */
+/*   Created: 2024/12/30 12:54:47 by albillie          #+#    #+#             */
+/*   Updated: 2024/12/30 13:08:34 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-bool	is_valid_args(t_stacks *stack_a, int ac, char **av)
+void	chunk_sort(t_stacks **sa, t_stacks **sb, t_chunks *chunks)
 {
-	if (!check_chars(ac, av))
-		return (false);
-	else if (!check_limits(ac, av))
-		return (false);
-	else if (!check_len(ac, av))
-		return (false);
-	else if (!check_for_doubles(stack_a))
-		return (false);
-	else
-		return (true);
+	int	count;
+	
+	while (*sa)
+	{
+
+		count = get_element_pos(chunks, (*sa)->data);
+		if (count == 1)
+		{
+			ft_pb(sb, sa);
+		}
+		else if (count == -1)
+		{
+			ft_pb(sb, sa);
+			ft_rb(sb, false);
+		}
+		else
+		{
+			ft_ra(sa, false);
+		}
+		update_chunks_pos(chunks, sa);
+	}
 }

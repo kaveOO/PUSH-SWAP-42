@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 07:57:38 by kaveo             #+#    #+#             */
-/*   Updated: 2024/12/30 07:01:40 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/30 12:56:35 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,30 +44,6 @@ void	stack_add_back(t_stacks **list, t_stacks *data)
 		ptr = ptr->next;
 	}
 	ptr->next = data;
-}
-
-void	print_stack_list(t_stacks *list)
-{
-	if (!list)
-		return ;
-	while (list->next)
-	{
-		ft_printf("%d ", list->data);
-		list = list->next;
-	}
-	ft_printf("%d ", list->data);
-}
-
-void	free_stack_list(t_stacks *list)
-{
-	t_stacks	*temp;
-
-	while (list != NULL)
-	{
-		temp = list;
-		list = list->next;
-		free(temp);
-	}
 }
 
 int	get_list_size(t_stacks *stack)
