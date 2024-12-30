@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 17:21:36 by kaveo             #+#    #+#             */
-/*   Updated: 2024/12/30 13:07:28 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/30 13:50:04 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,32 @@ void	sort_3_digits(t_stacks **stack_a)
 	}
 }
 
+void	handle_the_end(t_stacks **sb, t_stacks **sa, t_mimax *mimax)
+{
+	while (mimax->down != 0)
+	{
+		if ((find_bigger(sb, &mimax)) > find_lower(sa, mimax))
+		{
+			ft_pa(sa, sb);
+			ft_rra(sa, false);
+			mimax->down--;
+		}
+		else if ((find_bigger(sb, &mimax)) < find_lower(sa, mimax))
+		{
+			ft_rra(sa, false);
+			mimax->down--;
+		}
+	}
+}
+void	handle_the_bottom(t_stacks **sa, t_stacks **sb, t_mimax *mimax)
+{
+	ft_pa(sa, sb);
+	ft_ra(sa, false);
+	mimax->down++;
+}
+
 void	push_to_a(t_stacks **sa, t_stacks **sb, t_mimax *mimax)
 {
-	int	down;
-
-	down = 0;
 	while (*sb)
 	{
 		find_bigger(sb, &mimax);
@@ -44,42 +65,24 @@ void	push_to_a(t_stacks **sa, t_stacks **sb, t_mimax *mimax)
 			if (mimax->min > mimax->max)
 			{
 				ft_rra(sa, false);
-				down--;
+				mimax->down--;
 			}
 			else
 				ft_pa(sa, sb);
 		}
-		else if (down == 0 || (*sb)->data > mimax->min)
-		{
-			ft_pa(sa, sb);
-			ft_ra(sa, false);
-			down++;
-		}
+		else if (mimax->down == 0 || (*sb)->data > mimax->min)
+			handle_the_bottom(sa, sb, mimax);
 		if (get_list_size(*sb) == 1)
-		{
-			while (down != 0)
-			{
-				if ((find_bigger(sb, &mimax)) > find_lower(sa, mimax))
-				{
-					ft_pa(sa, sb);
-					ft_rra(sa, false);
-					down--;
-				}
-				else if ((find_bigger(sb, &mimax)) < find_lower(sa, mimax))
-				{
-					ft_rra(sa, false);
-					down--;
-				}
-			}
-		}
+			handle_the_end(sb, sa, mimax);
 		else if (get_index(sb, mimax) >= get_list_size(*sb) / 2)
 			ft_rrb(sb, false);
 		else if (get_index(sb, mimax) < get_list_size(*sb) / 2)
 			ft_rb(sb, false);
 	}
+	ft_rrb(sa, sb);
 }
 
-void sort_list(t_stacks **sa, t_stacks **sb, t_chunks *chks, t_mimax *mimax)
+void	sort_list(t_stacks **sa, t_stacks **sb, t_chunks *chks, t_mimax *mimax)
 {
 	(void)sb;
 	if (get_list_size(*sa) == 2)
@@ -92,5 +95,3 @@ void sort_list(t_stacks **sa, t_stacks **sb, t_chunks *chks, t_mimax *mimax)
 		push_to_a(sa, sb, mimax);
 	}
 }
-
-

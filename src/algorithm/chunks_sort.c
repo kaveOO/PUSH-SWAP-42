@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 12:54:47 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/30 13:08:34 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/30 13:38:13 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,9 @@
 void	chunk_sort(t_stacks **sa, t_stacks **sb, t_chunks *chunks)
 {
 	int	count;
-	
+
 	while (*sa)
 	{
-
 		count = get_element_pos(chunks, (*sa)->data);
 		if (count == 1)
 		{

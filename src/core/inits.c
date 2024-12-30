@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 09:39:47 by kaveo             #+#    #+#             */
-/*   Updated: 2024/12/30 13:06:02 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/30 13:31:49 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,9 @@ t_mimax	*init_mimax(void)
 	mimax = malloc(sizeof(mimax));
 	if (!mimax)
 		return (NULL);
-	mimax->max = -2147483648;
+	mimax->max = 0;
 	mimax->min = 0;
+	mimax->down = 0;
 	return (mimax);
 }
 
