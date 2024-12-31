@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   inits.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 09:39:47 by kaveo             #+#    #+#             */
-/*   Updated: 2024/12/30 13:31:49 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/31 12:15:09 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ t_mimax	*init_mimax(void)
 {
 	t_mimax	*mimax;
 
-	mimax = malloc(sizeof(mimax));
+	mimax = malloc(sizeof(t_mimax));
 	if (!mimax)
 		return (NULL);
 	mimax->max = 0;
