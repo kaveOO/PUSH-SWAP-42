@@ -6,35 +6,11 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 17:21:36 by kaveo             #+#    #+#             */
-/*   Updated: 2024/12/31 12:51:20 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/31 17:51:35 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	sort_3_digits(t_stacks **stack_a)
-{
-	if (((*stack_a)->data > (*stack_a)->next->data)
-		&& ((*stack_a)->data > (*stack_a)->next->next->data))
-	{
-		ft_ra(stack_a, false);
-	}
-	else if ((*stack_a)->next->data > (*stack_a)->data && (*stack_a)->next->data
-		> (*stack_a)->next->next->data)
-	{
-		ft_rra(stack_a, false);
-	}
-	if ((*stack_a)->data > (*stack_a)->next->data)
-	{
-		ft_sa(*stack_a, false);
-	}
-}
-void	sort_4_digits(t_stacks	**sa, t_stacks **sb, t_mimax *mimax)
-{
-	ft_pb(sb, sa);
-	sort_3_digits(sa);
-	print
-}
 
 void	handle_the_end(t_stacks **sb, t_stacks **sa, t_mimax *mimax)
 {
@@ -80,9 +56,9 @@ void	push_to_a(t_stacks **sa, t_stacks **sb, t_mimax *mimax)
 			handle_the_bottom(sa, sb, mimax);
 		if (get_list_size(*sb) == 1)
 			handle_the_end(sb, sa, mimax);
-		else if (get_index(sb, mimax) >= get_list_size(*sb) / 2)
+		else if (get_index(sb, mimax->max) >= get_list_size(*sb) / 2)
 			ft_rrb(sb, false);
-		else if (get_index(sb, mimax) < get_list_size(*sb) / 2)
+		else if (get_index(sb, mimax->max) < get_list_size(*sb) / 2)
 			ft_rb(sb, false);
 	}
 	ft_rrb(sa, sb);
@@ -97,6 +73,8 @@ void	sort_list(t_stacks **sa, t_stacks **sb, t_chunks *chks, t_mimax *mimax)
 		sort_3_digits(sa);
 	else if (get_list_size(*sa) == 4)
 		sort_4_digits(sa, sb, mimax);
+	else if (get_list_size(*sa) == 5)
+		sort_5_digits(sa, sb, mimax, chks);
 	else if (get_list_size(*sa) > 3)
 	{
 		chunk_sort(sa, sb, chks);

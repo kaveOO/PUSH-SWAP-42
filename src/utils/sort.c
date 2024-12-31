@@ -5,68 +5,93 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/30 12:57:37 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/30 13:02:24 by albillie         ###   ########.fr       */
+/*   Created: 2024/12/31 14:23:59 by albillie          #+#    #+#             */
+/*   Updated: 2024/12/31 21:49:09 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	find_bigger(t_stacks **stack_b, t_mimax **mimax)
+void	sort_3_digits(t_stacks **stack_a)
 {
-	t_stacks	*ptr;
-	int			i;
-
-	ptr = (*stack_b);
-	if (!ptr)
-		return (0);
-	i = 0;
-	if (!ptr->next)
-		return (ptr->data);
-	(*mimax)->max = 0;
-	while (ptr)
+	if (((*stack_a)->data > (*stack_a)->next->data)
+		&& ((*stack_a)->data > (*stack_a)->next->next->data))
 	{
-		if (ptr->data > (*mimax)->max)
-		{
-			(*mimax)->max = ptr->data;
-		}
-		ptr = ptr->next;
-		i++;
+		ft_ra(stack_a, false);
 	}
-	if (!i)
-		return (-1);
-	return (i);
+	else if ((*stack_a)->next->data > (*stack_a)->data && (*stack_a)->next->data
+		> (*stack_a)->next->next->data)
+	{
+		ft_rra(stack_a, false);
+	}
+	if ((*stack_a)->data > (*stack_a)->next->data)
+	{
+		ft_sa(*stack_a, false);
+	}
 }
 
-int	find_lower(t_stacks **stack_a, t_mimax *mimax)
+void	sort_4_digits(t_stacks	**sa, t_stacks **sb, t_mimax *mimax)
 {
-	t_stacks	*ptr;
-
-	ptr = (*stack_a);
-	mimax->min = 0;
-	if (!ptr)
-		return (0);
-	while (ptr->next)
+	(void) mimax;
+	ft_pb(sb, sa);
+	sort_3_digits(sa);
+	if ((*sb)->data < (*sa)->data)
+		ft_pa(sa, sb);
+	else if ((*sb)->data < (*sa)->next->data)
 	{
-		ptr = ptr->next;
+		ft_pa(sa, sb);
+		ft_sa(*sa, false);
 	}
-	mimax->min = ptr->data;
-	return (ptr->data);
+	else if ((*sb)->data > find_lower(sa, mimax))
+	{
+		ft_pa(sa, sb);
+		ft_ra(sa, false);
+	}
+	else if ((*sb)->data < (*sa)->next->data)
+	{
+		ft_ra(sa, false);
+		ft_pa(sa, sb);
+	}
+	else if ((*sb)->data > (*sa)->next->data)
+	{
+		ft_rra(sa, false);
+		ft_pa(sa, sb);
+		ft_ra(sa, false);
+		ft_ra(sa, false);
+	}
 }
 
-int	get_index(t_stacks **stack_b, t_mimax *mimax)
+void	sort_5_digits(t_stacks **sa, t_stacks **sb, t_mimax *mimax, t_chunks *cks)
 {
-	int			i;
-	t_stacks	*ptr;
-
-	ptr = (*stack_b);
-	i = 1;
-	while (i < get_list_size(*stack_b))
+	(void) cks;
+	ft_pb(sb, sa);
+	sort_4_digits(sa, sb, mimax);
+	if ((*sb)->data < (*sa)->data)
+		ft_pa(sa, sb);
+	else if ((*sb)->data < (*sa)->next->data)
 	{
-		if (ptr->data == mimax->max)
-			return (i);
-		ptr = ptr->next;
-		i++;
+		ft_pa(sa, sb);
+		ft_sa(*sa, false);
 	}
-	return (i);
+	else if ((*sb)->data > find_lower(sa, mimax))
+	{
+		ft_pa(sa, sb);
+		ft_ra(sa, false);
+	}
+	else if ((*sb)->data < (*sa)->next->next->data)
+	{
+		ft_rra(sa, false);
+	}
+	else if ((*sb)->data < find_lower(sa, mimax))
+	{
+		ft_rra(sa, false);
+		ft_pa(sa, sb);
+		ft_ra(sa, false);
+		ft_ra(sa, false);
+	}
+
+
+
+
+
 }

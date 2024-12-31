@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 10:48:02 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/31 12:52:56 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/31 17:52:40 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,10 +89,12 @@ int			*fill_sort_array(t_stacks **stack_a);
 void		sort_list(t_stacks **sa, t_stacks **sb, t_chunks *cks, t_mimax *mi);
 void		sort_3_digits(t_stacks **stack_a);
 void		chunk_sort(t_stacks **sa, t_stacks **sb, t_chunks *chunks);
-int			get_index(t_stacks **stack_a, t_mimax *mimax);
+int			get_index(t_stacks **stack_a, int nb);
 int			find_lower(t_stacks **stack_a, t_mimax *mimax);
 int			find_bigger(t_stacks **stack_b, t_mimax **mimax);
 void		handle_the_end(t_stacks **sb, t_stacks **sa, t_mimax *mimax);
+void		sort_4_digits(t_stacks	**sa, t_stacks **sb, t_mimax *mimax);
+void		sort_5_digits(t_stacks **sa, t_stacks **sb, t_mimax *mimax, t_chunks *cks);
 
 // ? INSTRUCTIONS
 

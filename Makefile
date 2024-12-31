@@ -6,7 +6,7 @@
 #    By: albillie <albillie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/11 00:18:47 by albillie          #+#    #+#              #
-#    Updated: 2024/12/30 12:58:16 by albillie         ###   ########.fr        #
+#    Updated: 2024/12/31 14:23:57 by albillie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ SRC		=	src/instructions/push.c \
 			src/utils/lists.c		\
 			src/utils/parsing.c		\
 			src/utils/chunks.c		\
+			src/utils/find.c		\
 			src/utils/sort.c		\
 
 

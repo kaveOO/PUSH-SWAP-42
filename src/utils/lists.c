@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 07:57:38 by kaveo             #+#    #+#             */
-/*   Updated: 2024/12/31 12:52:43 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/31 18:48:32 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	print_stack_list(t_stacks **list)
 	ptr = (*list);
 	while (ptr->next)
 	{
-		ft_printf("%d\n", ptr->data);
+		ft_printf("%d ", ptr->data);
 		ptr = ptr->next;
 	}
 	ft_printf("%d\n", ptr->data);

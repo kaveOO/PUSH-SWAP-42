@@ -10,7 +10,11 @@
 		"bitset": "c",
 		"algorithm": "c",
 		"__bit_reference": "c",
-		"unordered_map": "c"
+		"unordered_map": "c",
+		"string": "c",
+		"string_view": "c",
+		"ranges": "c",
+		"vector": "c"
 	},
 	"C_Cpp.errorSquiggles": "disabled"
 }
