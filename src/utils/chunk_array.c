@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   chunk_array.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 03:32:27 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/30 12:51:48 by albillie         ###   ########.fr       */
+/*   Updated: 2025/01/01 00:35:44 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,6 @@ void	print_array(int *array)
 		ft_printf("%d ", array[i]);
 		i++;
 	}
-	ft_printf("\n");
-	ft_printf("\n");
 }
 
 int	get_array_size(int *array)
