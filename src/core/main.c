@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 01:06:19 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/31 12:15:20 by kaveo            ###   ########.fr       */
+/*   Updated: 2024/12/31 12:46:03 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ int	main(int argc, char **argv)
 
 	if (argc <= 2)
 		exit(1);
-	stack_b = NULL;
 	stack_a = init_stack_a(argc, argv);
-	chunks = init_chunks_stack(&stack_a);
 	if (!is_valid_args(stack_a, argc, argv))
-		exit_handler(stack_a, stack_b, chunks, 1);
-	if (!check_for_doubles(stack_a))
-		exit_handler(stack_a, stack_b, chunks, 0);
+		exit_handler(stack_a, NULL, NULL, 1);
+	if (check_if_sorted(stack_a))
+		exit_handler(stack_a, NULL, NULL, 0);
+	stack_b = NULL;
+	chunks = init_chunks_stack(&stack_a);
 	mimax = init_mimax();
 	sort_list(&stack_a, &stack_b, chunks, mimax);
 	free(mimax);

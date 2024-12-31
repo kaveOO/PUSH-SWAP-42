@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 10:48:02 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/30 13:36:52 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/31 12:52:56 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ t_stacks	*stack_lst_new(int data);
 void		stack_add_back(t_stacks **list, t_stacks *data);
 int			get_list_size(t_stacks *stack);
 void		stack_add_front(t_stacks **stack, t_stacks *data);
+void		print_stack_list(t_stacks **list);
 
 // ? HANDLING UTILS FUNCTIONS
 

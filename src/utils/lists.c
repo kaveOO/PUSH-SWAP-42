@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 07:57:38 by kaveo             #+#    #+#             */
-/*   Updated: 2024/12/30 12:56:35 by albillie         ###   ########.fr       */
+/*   Updated: 2024/12/31 12:52:43 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,16 @@ int	get_list_size(t_stacks *stack)
 		i++;
 	}
 	return (i);
+}
+void	print_stack_list(t_stacks **list)
+{
+	t_stacks	*ptr;
+
+	ptr = (*list);
+	while (ptr->next)
+	{
+		ft_printf("%d\n", ptr->data);
+		ptr = ptr->next;
+	}
+	ft_printf("%d\n", ptr->data);
 }
