@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   inits.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 09:39:47 by kaveo             #+#    #+#             */
-/*   Updated: 2024/12/31 12:15:09 by kaveo            ###   ########.fr       */
+/*   Updated: 2025/01/01 15:58:51 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ t_chunks	*init_chunks_stack(t_stacks **stack_a)
 	if (!chunks)
 		return (NULL);
 	chunks->size = get_list_size(*stack_a);
-	chunks->array = fill_sort_array(stack_a);
+	chunks->array = fill_sort_array(stack_a, chunks->size);
 	chunks->chunks_count = get_chunks_count(get_list_size(*stack_a));
 	chunks->middle = chunks->size / 2;
 	chunks->offset = chunks->size / chunks->chunks_count;

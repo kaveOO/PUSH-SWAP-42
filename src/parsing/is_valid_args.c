@@ -6,13 +6,13 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 00:09:24 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/31 12:38:16 by albillie         ###   ########.fr       */
+/*   Updated: 2025/01/01 14:28:35 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-bool	is_valid_args(t_stacks *stack_a, int ac, char **av)
+bool	is_valid_args(int ac, char **av)
 {
 	if (!check_chars(ac, av))
 		return (false);
@@ -20,8 +20,13 @@ bool	is_valid_args(t_stacks *stack_a, int ac, char **av)
 		return (false);
 	else if (!check_len(ac, av))
 		return (false);
-	else if (!check_for_doubles(stack_a))
-		return (false);
 	else
 		return (true);
+}
+void	check_doubles_and_sorted(t_stacks *stack_a)
+{
+	if (!check_for_doubles(stack_a))
+		exit_handler(stack_a, NULL, NULL, 1);
+	if (check_if_sorted(stack_a))
+		exit_handler(stack_a, NULL, NULL, 0);
 }

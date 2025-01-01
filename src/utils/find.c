@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 12:57:37 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/31 17:53:13 by albillie         ###   ########.fr       */
+/*   Updated: 2025/01/01 16:35:09 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	find_bigger(t_stacks **stack_b, t_mimax **mimax)
 	i = 0;
 	if (!ptr->next)
 		return (ptr->data);
-	(*mimax)->max = 0;
+	(*mimax)->max = -2147483648;
 	while (ptr)
 	{
 		if (ptr->data > (*mimax)->max)

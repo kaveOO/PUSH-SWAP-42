@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 17:21:36 by kaveo             #+#    #+#             */
-/*   Updated: 2024/12/31 17:51:35 by albillie         ###   ########.fr       */
+/*   Updated: 2025/01/01 17:15:19 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,11 @@ void	handle_the_end(t_stacks **sb, t_stacks **sa, t_mimax *mimax)
 }
 void	handle_the_bottom(t_stacks **sa, t_stacks **sb, t_mimax *mimax)
 {
+	if (get_list_size(*sb) == 1)
+	{
+		ft_pa(sa, sb);
+		return ;
+	}
 	ft_pa(sa, sb);
 	ft_ra(sa, false);
 	mimax->down++;
@@ -38,7 +43,7 @@ void	handle_the_bottom(t_stacks **sa, t_stacks **sb, t_mimax *mimax)
 
 void	push_to_a(t_stacks **sa, t_stacks **sb, t_mimax *mimax)
 {
-	while (*sb)
+	while (*sb || mimax->down != 0)
 	{
 		find_bigger(sb, &mimax);
 		find_lower(sa, mimax);
@@ -60,8 +65,8 @@ void	push_to_a(t_stacks **sa, t_stacks **sb, t_mimax *mimax)
 			ft_rrb(sb, false);
 		else if (get_index(sb, mimax->max) < get_list_size(*sb) / 2)
 			ft_rb(sb, false);
+		// ft_printf("%d\n", mimax->down);
 	}
-	ft_rrb(sa, sb);
 }
 
 void	sort_list(t_stacks **sa, t_stacks **sb, t_chunks *chks, t_mimax *mimax)

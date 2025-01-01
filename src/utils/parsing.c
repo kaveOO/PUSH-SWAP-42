@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 00:12:44 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/30 12:50:22 by albillie         ###   ########.fr       */
+/*   Updated: 2025/01/01 14:15:52 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,14 +95,13 @@ bool	check_for_doubles(t_stacks *list)
 
 bool	check_if_sorted(t_stacks *stack_a)
 {
-	t_stacks	*ptr;
-
-	ptr = stack_a;
-	while (ptr->next != NULL)
+	while (stack_a->next)
 	{
-		if (ptr->data > ptr->next->data)
+		if (stack_a->data > stack_a->next->data)
+		{
 			return (false);
-		ptr = ptr->next;
+		}
+		stack_a = stack_a->next;
 	}
 	return (true);
 }

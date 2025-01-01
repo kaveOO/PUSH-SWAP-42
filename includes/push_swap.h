@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 10:48:02 by albillie          #+#    #+#             */
-/*   Updated: 2024/12/31 17:52:40 by albillie         ###   ########.fr       */
+/*   Updated: 2025/01/01 16:01:49 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,13 @@ t_mimax		*init_mimax(void);
 
 // ? PARSING FUNCTIONS
 
-bool		is_valid_args(t_stacks *stack_a, int ac, char **av);
+bool		is_valid_args(int ac, char **av);
 bool		check_chars(int ac, char **av);
 bool		check_limits(int ac, char **av);
 bool		check_len(int ac, char **av);
 bool		check_for_doubles(t_stacks *list);
 bool		check_if_sorted(t_stacks *stack_a);
+void		check_doubles_and_sorted(t_stacks *stack_a);
 
 // ? LISTS FUNCTIONS
 
@@ -75,14 +76,13 @@ void		free_chunks_list(t_chunks *chunks);
 // ? CHUNKS UTILS
 
 int			get_chunks_count(int lst_size);
-int			get_array_size(int *array);
 int			get_element_pos(t_chunks *chunks, int data);
 void		update_chunks_pos(t_chunks *chunks, t_stacks **stack_a);
 bool		elements_in_chunks(t_chunks *chunks, t_stacks **stack_a);
 void		push_to_a(t_stacks **sa, t_stacks **sb, t_mimax *mimax);
-int			*bubble_sort_array(int *array);
-void		print_array(int *array);
-int			*fill_sort_array(t_stacks **stack_a);
+int			*bubble_sort_array(int *array, int size);
+void		print_array(int *array, int size);
+int			*fill_sort_array(t_stacks **stack_a, int size);
 
 // ? SORTING FUNCTIONS
 

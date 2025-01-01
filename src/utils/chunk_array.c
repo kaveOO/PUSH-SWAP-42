@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   chunk_array.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 03:32:27 by albillie          #+#    #+#             */
-/*   Updated: 2025/01/01 00:35:44 by kaveo            ###   ########.fr       */
+/*   Updated: 2025/01/01 16:01:41 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	*fill_sort_array(t_stacks **stack_a)
+int	*fill_sort_array(t_stacks **stack_a, int size)
 {
 	t_stacks	*ptr;
 	int			*array;
 	int			i;
 
-	array = malloc(sizeof(int *) * (get_list_size(*stack_a) + 1));
+	array = malloc(sizeof(int *) * (size + 1));
 	if (!array)
 		return (NULL);
 	ptr = (*stack_a);
@@ -30,43 +30,31 @@ int	*fill_sort_array(t_stacks **stack_a)
 		i++;
 	}
 	array[i] = '\0';
-	return (bubble_sort_array(array));
+	return (bubble_sort_array(array, size));
 }
 
-void	print_array(int *array)
+void	print_array(int *array, int size)
 {
 	int	i;
 
 	i = 0;
-	while (array[i])
+	while (i < size)
 	{
 		ft_printf("%d ", array[i]);
 		i++;
 	}
 }
 
-int	get_array_size(int *array)
-{
-	int	i;
-
-	i = 0;
-	while (array[i])
-	{
-		i++;
-	}
-	return (i);
-}
-
-int	*bubble_sort_array(int *array)
+int	*bubble_sort_array(int *array, int size)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while (i < get_array_size(array))
+	while (i < size)
 	{
 		j = 0;
-		while (j < get_array_size(array) - 1)
+		while (j < size - 1)
 		{
 			if (array[j] > array[j + 1])
 			{
