@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 14:23:59 by albillie          #+#    #+#             */
-/*   Updated: 2025/01/01 17:19:06 by albillie         ###   ########.fr       */
+/*   Updated: 2025/01/01 17:56:48 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,11 @@ void	sort_5_digits(t_stacks **sa, t_stacks **sb, t_mimax *mimax, t_chunks *cks)
 	else if ((*sb)->data < (*sa)->next->next->data)
 	{
 		ft_rra(sa, false);
+		ft_rra(sa, false);
+		ft_pa(sa, sb);
+		ft_ra(sa, false);
+		ft_ra(sa, false);
+		ft_ra(sa, false);
 	}
 	else if ((*sb)->data < find_lower(sa, mimax))
 	{

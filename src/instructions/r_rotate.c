@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 22:57:06 by kaveo             #+#    #+#             */
-/*   Updated: 2024/12/29 21:58:03 by albillie         ###   ########.fr       */
+/*   Updated: 2025/01/01 17:36:23 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	ft_rra(t_stacks **stack_a, bool both)
 	t_stacks	*prev_last;
 
 	last = (*stack_a);
+	if (get_list_size(*stack_a) < 2)
+		return ;
 	prev_last = NULL;
 	while (last->next)
 	{
@@ -37,6 +39,8 @@ void	ft_rrb(t_stacks **stack_b, bool both)
 	t_stacks	*prev_last;
 
 	last = (*stack_b);
+	if (get_list_size(*stack_b) < 2)
+		return ;
 	prev_last = NULL;
 	if (!last->next)
 		return ;
