@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lists.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 07:57:38 by kaveo             #+#    #+#             */
-/*   Updated: 2024/12/31 18:48:32 by albillie         ###   ########.fr       */
+/*   Updated: 2025/01/01 23:38:19 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,9 @@ void	stack_add_back(t_stacks **list, t_stacks *data)
 	ptr->next = data;
 }
 
-int	get_list_size(t_stacks *stack)
+long	get_list_size(t_stacks *stack)
 {
-	int	i;
+	long	i;
 
 	i = 0;
 	if (!stack)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 17:21:36 by kaveo             #+#    #+#             */
-/*   Updated: 2025/01/01 17:29:02 by albillie         ###   ########.fr       */
+/*   Updated: 2025/01/02 00:08:47 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	sort_list(t_stacks **sa, t_stacks **sb, t_chunks *chks, t_mimax *mimax)
 	else if (get_list_size(*sa) == 4)
 		sort_4_digits(sa, sb, mimax);
 	else if (get_list_size(*sa) == 5)
-		sort_5_digits(sa, sb, mimax, chks);
+		sort_5_digits(sa, sb, mimax);
 	else if (get_list_size(*sa) > 3)
 	{
 		chunk_sort(sa, sb, chks);

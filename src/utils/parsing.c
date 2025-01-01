@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 00:12:44 by albillie          #+#    #+#             */
-/*   Updated: 2025/01/01 14:15:52 by albillie         ###   ########.fr       */
+/*   Updated: 2025/01/02 00:37:48 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ bool	check_limits(int ac, char **av)
 	i = 1;
 	while (i < ac)
 	{
-		if (ft_atol(av[i]) > INT_MAX || ft_atol(av[i]) < INT_MIN)
+		if (ft_atol(av[i]) > 2147483647 || ft_atol(av[i]) < -2147483648)
 			return (false);
 		i++;
 	}

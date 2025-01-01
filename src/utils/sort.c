@@ -6,7 +6,7 @@
 /*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 14:23:59 by albillie          #+#    #+#             */
-/*   Updated: 2025/01/01 23:17:29 by kaveo            ###   ########.fr       */
+/*   Updated: 2025/01/02 00:15:47 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,47 +61,50 @@ void	sort_4_digits(t_stacks	**sa, t_stacks **sb, t_mimax *mimax)
 	}
 }
 
-void	sort_5_digits(t_stacks **sa, t_stacks **sb, t_mimax *mimax, t_chunks *cks)
+// void	sort_5_digits_end(t_stacks **sa, t_stacks **sb, t_mimax *mimax)
+// {
+// }
+
+void	sort_5_digits(t_stacks **sa, t_stacks **sb, t_mimax *mimax)
 {
-	(void) cks;
 	ft_pb(sb, sa);
 	sort_4_digits(sa, sb, mimax);
 	if ((*sb)->data < (*sa)->data)
 	{
 		ft_pa(sa, sb);
 	}
-	if ((*sb)->data > (*sa)->data && (*sb)->data < (*sa)->next->data)
+	else if ((*sb)->data > (*sa)->data && (*sb)->data < (*sa)->next->data)
 	{
 		ft_pa(sa, sb);
 		ft_sa(*sa, false);
 	}
-	if ((*sb)->data > (*sa)->next->data && (*sb)->data < (*sa)->next->next->data)
+	else if ((*sb)->data > (*sa)->next->data && (*sb)->data < (*sa)->next->next->data)
 	{
 		ft_ra(sa, false);
 		ft_pa(sa, sb);
 		ft_sa(*sa, false);
 		ft_rra(sa, false);
 	}
-	if ((*sb)->data > find_lower(sa, mimax) && (*sb)->data > (*sa)->next->next->data)
+	else if ((*sb)->data > find_lower(sa, mimax) && (*sb)->data > (*sa)->next->next->data)
 	{
 		ft_pa(sa, sb);
 		ft_ra(sa, false);
 	}
-	if ((*sb)->data > (*sa)->next->next->data && (*sb)->data < find_lower(sa, mimax))
-	{
-		ft_rra(sa, false);
-		ft_pa(sa, sb);
-		ft_ra(sa, false);
-		ft_ra(sa, false);
-	}
-	if ((*sb)->data < find_lower(sa, mimax) && (*sb)->data > (*sa)->next->next->data)
+	else if ((*sb)->data > (*sa)->next->next->data && (*sb)->data < find_lower(sa, mimax))
 	{
 		ft_rra(sa, false);
 		ft_pa(sa, sb);
 		ft_ra(sa, false);
 		ft_ra(sa, false);
 	}
-	if ((*sb)->data < find_lower(sa, mimax) && (*sb)->data > (*sa)->next->data)
+	else if ((*sb)->data < find_lower(sa, mimax) && (*sb)->data > (*sa)->next->next->data)
+	{
+		ft_rra(sa, false);
+		ft_pa(sa, sb);
+		ft_ra(sa, false);
+		ft_ra(sa, false);
+	}
+	else if ((*sb)->data < find_lower(sa, mimax) && (*sb)->data > (*sa)->next->data)
 	{
 		ft_ra(sa, false);
 		ft_ra(sa, false);
@@ -109,18 +112,5 @@ void	sort_5_digits(t_stacks **sa, t_stacks **sb, t_mimax *mimax, t_chunks *cks)
 		ft_rra(sa, false);
 		ft_rra(sa, false);
 	}
-
-
-	// else if ((*sb)->data < (*sa)->next->data)
-	// {
-	// 	ft_pa(sa, sb);
-	// 	ft_sa(*sa, false);
-	// }
-	// else if ((*sb)->data > find_lower(sa, mimax))
-	// {
-	// 	ft_pa(sa, sb);
-	// 	ft_ra(sa, false);
-	// }
-
-
+	// sort_5_digits_end(sa, sb, mimax);
 }

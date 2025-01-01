@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 10:48:02 by albillie          #+#    #+#             */
-/*   Updated: 2025/01/01 16:01:49 by albillie         ###   ########.fr       */
+/*   Updated: 2025/01/01 23:58:07 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void		check_doubles_and_sorted(t_stacks *stack_a);
 
 t_stacks	*stack_lst_new(int data);
 void		stack_add_back(t_stacks **list, t_stacks *data);
-int			get_list_size(t_stacks *stack);
+long		get_list_size(t_stacks *stack);
 void		stack_add_front(t_stacks **stack, t_stacks *data);
 void		print_stack_list(t_stacks **list);
 
@@ -94,7 +94,7 @@ int			find_lower(t_stacks **stack_a, t_mimax *mimax);
 int			find_bigger(t_stacks **stack_b, t_mimax **mimax);
 void		handle_the_end(t_stacks **sb, t_stacks **sa, t_mimax *mimax);
 void		sort_4_digits(t_stacks	**sa, t_stacks **sb, t_mimax *mimax);
-void		sort_5_digits(t_stacks **sa, t_stacks **sb, t_mimax *mimax, t_chunks *cks);
+void		sort_5_digits(t_stacks **sa, t_stacks **sb, t_mimax *mimax);
 
 // ? INSTRUCTIONS
 
