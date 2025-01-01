@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 14:23:59 by albillie          #+#    #+#             */
-/*   Updated: 2025/01/01 17:56:48 by albillie         ###   ########.fr       */
+/*   Updated: 2025/01/01 23:17:29 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,31 +67,60 @@ void	sort_5_digits(t_stacks **sa, t_stacks **sb, t_mimax *mimax, t_chunks *cks)
 	ft_pb(sb, sa);
 	sort_4_digits(sa, sb, mimax);
 	if ((*sb)->data < (*sa)->data)
+	{
 		ft_pa(sa, sb);
-	else if ((*sb)->data < (*sa)->next->data)
+	}
+	if ((*sb)->data > (*sa)->data && (*sb)->data < (*sa)->next->data)
 	{
 		ft_pa(sa, sb);
 		ft_sa(*sa, false);
 	}
-	else if ((*sb)->data > find_lower(sa, mimax))
+	if ((*sb)->data > (*sa)->next->data && (*sb)->data < (*sa)->next->next->data)
+	{
+		ft_ra(sa, false);
+		ft_pa(sa, sb);
+		ft_sa(*sa, false);
+		ft_rra(sa, false);
+	}
+	if ((*sb)->data > find_lower(sa, mimax) && (*sb)->data > (*sa)->next->next->data)
 	{
 		ft_pa(sa, sb);
 		ft_ra(sa, false);
 	}
-	else if ((*sb)->data < (*sa)->next->next->data)
-	{
-		ft_rra(sa, false);
-		ft_rra(sa, false);
-		ft_pa(sa, sb);
-		ft_ra(sa, false);
-		ft_ra(sa, false);
-		ft_ra(sa, false);
-	}
-	else if ((*sb)->data < find_lower(sa, mimax))
+	if ((*sb)->data > (*sa)->next->next->data && (*sb)->data < find_lower(sa, mimax))
 	{
 		ft_rra(sa, false);
 		ft_pa(sa, sb);
 		ft_ra(sa, false);
 		ft_ra(sa, false);
 	}
+	if ((*sb)->data < find_lower(sa, mimax) && (*sb)->data > (*sa)->next->next->data)
+	{
+		ft_rra(sa, false);
+		ft_pa(sa, sb);
+		ft_ra(sa, false);
+		ft_ra(sa, false);
+	}
+	if ((*sb)->data < find_lower(sa, mimax) && (*sb)->data > (*sa)->next->data)
+	{
+		ft_ra(sa, false);
+		ft_ra(sa, false);
+		ft_pa(sa, sb);
+		ft_rra(sa, false);
+		ft_rra(sa, false);
+	}
+
+
+	// else if ((*sb)->data < (*sa)->next->data)
+	// {
+	// 	ft_pa(sa, sb);
+	// 	ft_sa(*sa, false);
+	// }
+	// else if ((*sb)->data > find_lower(sa, mimax))
+	// {
+	// 	ft_pa(sa, sb);
+	// 	ft_ra(sa, false);
+	// }
+
+
 }
