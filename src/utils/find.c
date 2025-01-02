@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   find.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 12:57:37 by albillie          #+#    #+#             */
-/*   Updated: 2025/01/02 01:28:20 by albillie         ###   ########.fr       */
+/*   Updated: 2025/01/02 16:20:02 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	find_lower(t_stacks **stack_a, t_mimax *mimax)
 	t_stacks	*ptr;
 
 	ptr = (*stack_a);
-	mimax->min = 2147483647;
+	mimax->min = 0;
 	if (!ptr)
 		return (0);
 	while (ptr->next)
