@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   is_valid_args.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 00:09:24 by albillie          #+#    #+#             */
-/*   Updated: 2025/01/01 14:28:35 by albillie         ###   ########.fr       */
+/*   Updated: 2025/01/02 00:50:17 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ bool	is_valid_args(int ac, char **av)
 	else
 		return (true);
 }
+
 void	check_doubles_and_sorted(t_stacks *stack_a)
 {
 	if (!check_for_doubles(stack_a))

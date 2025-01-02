@@ -6,7 +6,7 @@
 /*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 17:21:36 by kaveo             #+#    #+#             */
-/*   Updated: 2025/01/02 00:08:47 by kaveo            ###   ########.fr       */
+/*   Updated: 2025/01/02 00:58:24 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	handle_the_end(t_stacks **sb, t_stacks **sa, t_mimax *mimax)
 		}
 	}
 }
+
 void	handle_the_bottom(t_stacks **sa, t_stacks **sb, t_mimax *mimax)
 {
 	if (get_list_size(*sb) == 1)
